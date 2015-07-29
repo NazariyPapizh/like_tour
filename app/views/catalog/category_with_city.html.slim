@@ -1,0 +1,127 @@
+.page-header-banner
+  .bi style="background: url('#{@category.image.url(:large)}')no-repeat center center;"
+  .page-header-banner-title
+    .row
+      .columns
+        .title
+          h2 = @category.name
+  .breadcrumb-wrap
+    .row
+      .columns.large-8.medium-8.large-offset-4
+        ul.breadcrumbs
+          li
+            a href=root_path(locale: I18n.locale) = t('breadcrumbs.home')
+          li.has-sub-category
+            a href="#"
+              = @category.name
+              - categories = other_category(@category.id)
+              -if categories
+                ul.sub-category-breadcrumbs
+                  -categories.each do |c|
+                    li
+                      =link_to category_path(c.slug, locale: I18n.locale) do
+                        =c.name
+          li.has-sub-category
+            a href="#"
+              = @city.name
+            - if @cities
+              ul.sub-category-breadcrumbs
+                -@cities.each do |c|
+                  - if c.id != @city.id
+                    li
+                      =link_to category_with_city_path(@category.slug, c.slug, locale: I18n.locale) do
+                        =c.name
+.event-detail-page.category-with-city-wrap
+    .row
+      - get_tags(@category.name)
+      .columns.large-4.medium-4.small-12.filter-panel-wrap
+        /= render partial: 'main/filters_form_catalog_page', locals: { categories: @categories, category: @category, cities: @cities, city: @city, filters: @filter_words, flags: @checked_flags }
+        .event-forms-wrap
+          .event-form
+            .ornament-pattern
+            .header-title = t('title.banner-form')
+            form.form
+              - if @categories && @categories.count > 0
+                .input.select-category
+                  label = t('labels.type')
+                  select.fancy-select name="type"
+                    -@categories.each do |c|
+                      option value=c.slug selected=("selected" if c.name == @category.name)
+                        =c.name
+              - if @cities && @cities.count > 0
+                .input.select-city
+                  label = t('labels.city')
+                  select.fancy-select name="city"
+                    option value=@city.slug selected="selected"
+                      =@city.name
+                    - @cities.each do |c|
+                      option value=c.slug
+                        =c.name
+
+              - if @tags_s.count > 0
+                ul.event-filters.for-category-page.main-banner-filters
+                  - @tags_s.each do |f|
+                    li
+                      .squared-checkbox
+                        input type="checkbox" value="#{f.slug}" id="squared-#{f.slug}-#{f.id}-form" name="check[]" checked=("checked" if @checked_flags.include?(f.slug) )
+                        label.ico for="squared-#{f.slug}-#{f.id}-form"
+                      label.text for="squared-#{f.slug}-#{f.id}-form"
+                        =f.name
+              .filter-button
+                button.button.b-height-60 type="submit" name="filter_form" value="true"
+                  .button-inner
+                    .elements-wrap
+                      .elements
+                        .b-ico.b-parts
+                          h4
+                            =t('buttons.pick')
+                        .clearfix
+                    .b-border.b-parts
+
+      .columns.large-8.medium-8.small-12
+        .filter-wrap
+          -if @tags_s && @tags_s.count > 0
+            .row
+              .columns
+                .right
+                  .row
+                    .columns
+                      form.controls#Filters.filters-main
+                        fieldset
+                          - @tags_s.each do |ef|
+                            .checkbox
+                              .squared-checkbox
+                                input type="checkbox" value=".#{ef.slug}" id="squared-#{ef.slug}-#{ef.id}" name="check" checked=("checked" if @checked_flags.include?(ef.slug) )
+                                label.ico for="squared-#{ef.slug}-#{ef.id}"
+                              label.text for="squared-#{ef.slug}-#{ef.id}"
+                                =ef.name
+
+          .row#Container.container.tours-container.container-main
+            - if @tours
+              - @tours.published.each_with_index do |e, i|
+                - names ||= []
+                - e.filter_words.each do |c|
+                  - names << c.slug
+                .columns.large-6.item-filter class="#{names.join(' ')}" class="#{'end' if i == @tours.count-1}"
+                  .one-event-wrap
+                    a href=tour_path(@category.slug, @city.slug, e.slug, locale: I18n.locale)
+                      -if e.photo_galleries[0] && e.photo_galleries[0].image.exists?
+                        .event-image style="background: url('#{e.photo_galleries[0].image.url(:thumb)}')no-repeat center center;"
+                      -else
+                        .event-image style="background: url('#{asset_path('default_image.png')}')no-repeat center center;"
+
+                      .event-layer
+                        .event-content-wrap
+                          .gradient-for-event-content
+                          .one-event-content
+                            .oec-header
+                              h3
+                                =e.name
+                            .oec-text
+                              p
+                                =truncate_html e.short_description, lenght: '260'
+                      - if  e && e.date_begin
+                        .date-time-wrap.red-pattern
+                          span
+                            =t("tours.one-item.begin")
+                            =e.date_begin.strftime("%d.%m")

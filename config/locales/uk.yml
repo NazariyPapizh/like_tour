@@ -1,0 +1,542 @@
+--- 
+uk: 
+  about: 
+    certificate: Сертефікати
+    our_office: "Відвідайте наш офіс"
+    our_team: "Познайомтеся з нашою командою"
+    title: "Про нас"
+  admin: 
+    actions: 
+      bulk_delete: 
+        breadcrumb: мульти-видалення
+        bulk_link: "Видалити вибрані %{model_label_plural}"
+        menu: Мульти-видалення
+        title: "Видалити багато %{model_label_plural}"
+      dashboard: 
+        breadcrumb: панель
+        menu: "Контрольна панель"
+        title: "Керування сайтом"
+      delete: 
+        breadcrumb: видалення
+        done: вилучено
+        link: "Видалити '%{object_label}'"
+        menu: Видалення
+        title: "Видалення %{model_label} '%{object_label}'"
+      edit: 
+        breadcrumb: редагування
+        done: збережено
+        link: "Редагувати %{model_label}"
+        menu: Редагування
+        title: "Редагування %{model_label} '%{object_label}'"
+      export: 
+        breadcrumb: експорт
+        bulk_link: "Експорт вибраних %{model_label_plural}"
+        done: експортовано
+        link: "Експорт знайдених %{model_label_plural}"
+        menu: Експорт
+        title: "Експорт %{model_label}"
+      history_index: 
+        breadcrumb: історія
+        menu: Історія
+        title: "Історія для %{model_label_plural}"
+      history_show: 
+        breadcrumb: історія
+        menu: Історія
+        title: "Історія для %{model_label} '%{object_label}'"
+      index: 
+        breadcrumb: "%{model_label_plural}"
+        menu: Список
+        title: "Список %{model_label_plural}"
+      nestable: 
+        breadcrumb: Сортування
+        bulk_link: "Сортувати вибраний %{model_label_plural}"
+        done: Відсортований
+        error: Помилка
+        link: Сортування
+        live_update: "Автоматичне оновлення"
+        menu: Сортування
+        success: Успішно
+        title: "Сортування для %{model_label}"
+        update: Оновлення
+      new: 
+        breadcrumb: новий
+        done: створено
+        link: "Добавити новий %{model_label}"
+        menu: Створення
+        title: "Нова %{model_label}"
+      show: 
+        breadcrumb: "%{object_label}"
+        menu: Перегляд
+        title: "Деталі %{model_label} '%{object_label}'"
+      show_in_app: 
+        menu: "Показати на сайті"
+    export: 
+      click_to_reverse_selection: "Обратить выделение"
+      confirmation: "Експортувати як %{name}"
+      csv: 
+        col_sep: "Розділювач стовпців"
+        col_sep_help: "Залишіть пустим, щоби було по замовчуванню ('%{value}')"
+        default_col_sep: ","
+        encoding_to: "Декодувати як"
+        encoding_to_help: "Виберіть результативне кодування. Залишіть пустим, щоб залишити вихідне кодування недоторканим: (%{name})"
+        header_for_association_methods: "%{name} [%{association}]"
+        header_for_root_methods: "%{name}"
+        skip_header: "Без заголовку"
+        skip_header_help: "Не виводити заголовок (без опису полів)"
+      display: "Показать %{name}: %{type}"
+      empty_value_for_associated_objects: <пусто>
+      fields_from: "Поля із %{name}"
+      fields_from_associated: "Поля із асоційованої %{name}"
+      options_for: "Настройки для %{name}"
+      select: "Виберіть поля для експорту"
+    flash: 
+      error: "Не вдалсь %{action} %{name}"
+      model_not_found: "Модель '%{model}' не знайдена"
+      noaction: "Ніяких змін не зроблено"
+      object_not_found: "Об'єкт %{model} з id '%{id}' не знайдений"
+      successful: "%{name} був %{action}"
+    form: 
+      all_of_the_following_related_items_will_be_deleted: "Следующие объекты будут удалены:"
+      are_you_sure_you_want_to_delete_the_object: "Вы уверены что хотите удалить %{model_name}"
+      basic_info: "Базова інформація"
+      bulk_delete: "Следующие объекты будут удалены, что может сломать связи с другими объектами:"
+      cancel: Відміна
+      char_length_of: довжина
+      char_length_up_to: "довжина не більше"
+      confirmation: "Так, впевнений"
+      delete_confirmation: "Підтвердити видалення"
+      one_char: символ
+      optional: Необов'язкове
+      required: Обов'язкове
+      save: Зберегти
+      save_and_add_another: "Зберегти і добавити новий"
+      save_and_edit: "Зберегти і продовжити редагування"
+    home: 
+      name: "На сайт"
+    misc: 
+      add_filter: "Добавити фільтр..."
+      add_new: "Добавити новий"
+      ago: назад
+      bulk_menu_title: "Вибрані елементи..."
+      chose_all: "Вибрати все"
+      chosen: "Вибрати %{name}"
+      clear_all: "Видалити виділине"
+      down: Вниз
+      filter: Фільтр
+      log_out: Вийти
+      navigation: Навігація
+      refresh: Обновити
+      remove: Видалити
+      search: Пошук
+      show_all: "Показати все"
+      up: Вверх
+    pagination: 
+      next: "Наступна &raquo;"
+      previous: "&laquo; Попередня"
+      truncate: …
+    table_headers: 
+      changes: Зміни
+      created_at: Дата/Час
+      item: Елемнт
+      last_used: "Останній раз використовувалось"
+      message: Повідомлення
+      model_name: "Назва моделі"
+      records: Записи
+      username: Користувач
+  breadcrumbs: 
+    about: "Про нас"
+    contacts: Контакти
+    home: "// Головна"
+    service: Послуги
+    sitemap: "Карта сайту"
+  buttons: 
+    even-more: "Ще більше!"
+    order: Замовити
+    order-event: "Оформити замовлення"
+    pick: Підібрати!
+    send: Надіслати
+  ckeditor: 
+    buttons: 
+      cancel: Відміна
+      delete: Видалити
+      next: "Показати більше"
+      upload: Завантажити
+    confirm_delete: "Видалити файл?"
+    page_title: "CKEditor Завантаження файлів"
+  contacts-page: 
+    banner: 
+      title: КОНТАКТИ
+    contacts-phones: "Контактний телефон"
+    feedback-form: 
+      email: 
+        label: "Електронна скринька"
+      message: 
+        label: "Додаткові відомості"
+        placeholder: "Доброго дня Цікавить екскурсія для двох осіб на дати 1-3 травня у Львові. Прошу надати інформацію про можливі варіанти та ціни"
+      name: 
+        label: "Ваше ім’я"
+        placeholder: "Іванов Іван"
+      phone: 
+        label: "Контактний телефон"
+      title: "Форма зворотнього звязку"
+    our-address: "Наша адреса"
+    we-in-soc-networks: "Ми в соціальних мережах"
+  date: 
+    abbr_day_names: 
+      - нд.
+      - пн.
+      - вт.
+      - ср.
+      - чт.
+      - пт.
+      - сб.
+    abbr_month_names: 
+      - ~
+      - січ.
+      - лют.
+      - бер.
+      - квіт.
+      - трав.
+      - черв.
+      - лип.
+      - серп.
+      - вер.
+      - жовт.
+      - лист.
+      - груд.
+    day_names: 
+      - неділя
+      - понеділок
+      - вівторок
+      - середа
+      - четвер
+      - п'ятниця
+      - субота
+    formats: 
+      default: "%d.%m.%Y"
+      long: "%d %B %Y"
+      short: "%d %b"
+    month_names: 
+      - ~
+      - Січня
+      - Лютого
+      - Березня
+      - Квітня
+      - Травня
+      - Червня
+      - Липня
+      - Серпня
+      - Вересня
+      - Жовтня
+      - Листопада
+      - Грудня
+    order: 
+      - !ruby/symbol day
+      - !ruby/symbol month
+      - !ruby/symbol year
+  datetime: 
+    distance_in_words: 
+      about_x_hours: 
+        few: "близько %{count} години"
+        many: "близько %{count} годин"
+        one: "близько %{count} година"
+        other: "близько %{count} години"
+      about_x_months: 
+        few: "близько %{count} місяців"
+        many: "близько %{count} місяців"
+        one: "близько %{count} місяця"
+        other: "близько %{count} місяця"
+      about_x_years: 
+        few: "близько %{count} років"
+        many: "близько %{count} років"
+        one: "близько %{count} року"
+        other: "близько %{count} року"
+      almost_x_years: 
+        few: "майже %{count} років"
+        many: "майже %{count} років"
+        one: "майже %{count} роки"
+        other: "майже %{count} років"
+      half_a_minute: півхвилини
+      less_than_x_minutes: 
+        few: "менше %{count} хвилин"
+        many: "менше %{count} хвилин"
+        one: "менше %{count} хвилини"
+        other: "менше %{count} хвилини"
+      less_than_x_seconds: 
+        few: "менше %{count} секунд"
+        many: "менше %{count} секунд"
+        one: "менше %{count} секунди"
+        other: "менше %{count} секунди"
+      over_x_years: 
+        few: "більше %{count} років"
+        many: "більше %{count} років"
+        one: "більше %{count} року"
+        other: "більше %{count} року"
+      x_days: 
+        few: "%{count} дні"
+        many: "%{count} днів"
+        one: "%{count} день"
+        other: "%{count} дня"
+      x_minutes: 
+        few: "%{count} хвилини"
+        many: "%{count} хвилин"
+        one: "%{count} хвилина"
+        other: "%{count} хвилини"
+      x_months: 
+        few: "%{count} місяці"
+        many: "%{count} місяців"
+        one: "%{count} місяць"
+        other: "%{count} місяця"
+      x_seconds: 
+        few: "%{count} секунди"
+        many: "%{count} секунд"
+        one: "%{count} секунда"
+        other: "%{count} секунди"
+    prompts: 
+      day: День
+      hour: Година
+      minute: Хвилина
+      month: Місяць
+      second: Секунда
+      year: Рік
+  devise: 
+    confirmations: 
+      confirmed: "Ваш обліковий запис підтверджено. Ви увійшли в систему."
+      send_instructions: "Ви отримаєте лист з інструкціями щодо підтвердження вашого облікового запису протягом декількох хвилин."
+      send_paranoid_instructions: "Якщо Ваша електронна адреса існує в нашій базі даних, то протягом декількох хвилин Ви отримаєте лист з інструкціями щодо підтвердження Вашого облікового запису."
+    failure: 
+      already_authenticated: "Ви вже увійшли в систему."
+      inactive: "Ваш обліковий запис ще не активовано."
+      invalid: "Невірна електронна адреса чи пароль."
+      last_attempt: "У вас залишилась ще одна спроба перед блокуванням аккаунта."
+      locked: "Ваш обліковий запис заблоковано."
+      not_found_in_database: "Невірна електронна адреса чи пароль."
+      timeout: "Час вашої сесії вичерпано. Будь ласка, увійдіть в систему знову."
+      unauthenticated: "Вам необхідно увійти в систему чи зареєструватися."
+      unconfirmed: "Ви маєте підтвердити Ваш обліковий запис."
+    mailer: 
+      confirmation_instructions: 
+        subject: "Інструкції щодо підтвердження облікового запису"
+      reset_password_instructions: 
+        subject: "Інструкції щодо відновлення пароля"
+      unlock_instructions: 
+        subject: "Інструкції щодо розблокування облікового запису"
+    omniauth_callbacks: 
+      failure: "Ви не можете увійти в систему обліковим записом %{kind}, тому що \"%{reason}\"."
+      success: "Успішний вхід в систему з облікового запису %{kind}."
+    passwords: 
+      no_token: "Ця сторінка доступна тільки під час переходу з листа для скидання паролю. Якщо Ви все-таки перейшли по посиланню з нього, будь ласка, переконайтесь, що використали повний URL."
+      send_instructions: "Протягом декількох хвилин Ви отримаєте лист з інструкціями щодо скидання Вашого паролю."
+      send_paranoid_instructions: "Якщо Ваша електронна адреса існує в нашій базі даних, то протягом декількох хвилин Ви отримаєте лист з інструкціями щодо відновлення пароля."
+      updated: "Ваш пароль змінено. Ви увійшли в систему."
+      updated_not_active: "Ваш пароль успішно змінено."
+    registrations: 
+      destroyed: "До побачення! Ваш обліковий запис успішно видалений. Сподіваємось незабаром побачитись з Вами знову."
+      signed_up: "Ласкаво просимо! Ви успішно зареєструвалися."
+      signed_up_but_inactive: "Ви успішно зареєструвалися, але не можете увійти в систему тому що обліковий запис ще не активовано."
+      signed_up_but_locked: "Ви успішно зареєструвалися, але не можете увійти в систему тому що обліковий запис заблоковано."
+      signed_up_but_unconfirmed: "Ви отримаєте лист з інструкціями щодо підтвердження облікового запису протягом декількох хвилин."
+      update_needs_confirmation: "Ваш обліковий запис оновлено, але необхідно підтвердити нову електронну адресу. Будь ласка, перевірте свою електронну скриньку і перейдіть за посиланням \"Підтвердити\", шоб завершити оновлення електронної адреси."
+      updated: "Ваш обліковий запис змінено."
+    sessions: 
+      already_signed_out: "Успішний вихід з системи."
+      signed_in: "Ви увійшли в систему."
+      signed_out: "Успішний вихід з системи."
+    unlocks: 
+      send_instructions: "Протягом декількох хвилин Ви отримаєте лист з інструкціями щодо розблокування облікового запису."
+      send_paranoid_instructions: "Якщо обліковий запис існує, то протягом декількох хвилин Ви отримаєте лист з інструкціями щодо його розблокування."
+      unlocked: "Обліковий запис розблоковано. Ви увійшли в систему."
+  errors: 
+    format: "%{attribute} %{message}"
+    messages: 
+      accepted: "має бути прийнятий"
+      already_confirmed: "вже підтверджено. Буд -ласка, спробуйте увійти в систему"
+      blank: "не може бути пустим"
+      confirmation: "не збігається з підтвердженням"
+      confirmation_period_expired: "має бути підтверджено протягом %{period}, будь ласка, попросіть підтвердження запису ще раз"
+      empty: "не може бути порожнім"
+      equal_to: "має дорівнювати %{count}"
+      even: "має бути парним"
+      exclusion: зарезервовано
+      expired: "застаріла. Будь ласка, спробуйте ще раз"
+      greater_than: "має бути більше ніж %{count}"
+      greater_than_or_equal_to: "має бути більше ніж або дорівнювати %{count}"
+      inclusion: "не включено до переліку"
+      invalid: недійсний
+      less_than: "має бути менше ніж %{count}"
+      less_than_or_equal_to: "має бути менше ніж або дорівнювати %{count}"
+      not_a_number: "не число"
+      not_an_integer: "не э цілим числом"
+      not_found: "не знайдено"
+      not_locked: "не заблоковано"
+      not_saved: 
+        few: "%{resource}: не вдалося зберегти через %{count} помилки"
+        many: "%{resource}: не вдалося зберегти через %{count} помилок"
+        one: "%{resource}: не вдалося зберегти через %{count} помилку"
+        other: "%{resource}: не вдалося зберегти через %{count} помилок"
+      odd: "має бути непарним"
+      record_invalid: "Виникли помилки: %{errors}"
+      taken: "вже зайнятий"
+      too_long: 
+        few: "занадто довгий (максимум %{count} знаки)"
+        many: "занадто довгий (максимум %{count} знаків)"
+        one: "занадто довгий (максимум %{count} знак)"
+        other: "занадто довгий (максимум %{count} знаку)"
+      too_short: 
+        few: "занадто короткий (мінімум %{count} знаки)"
+        many: "занадто короткий (мінімум %{count} знаків)"
+        one: "занадто короткий (мінімум %{count} знак)"
+        other: "занадто короткий (мінімум %{count} знаку)"
+      wrong_length: 
+        few: "неправильна довжина (має бути %{count} знаки)"
+        many: "неправильна довжина (має бути %{count} знаків)"
+        one: "неправильна довжина (має бути %{count} знак)"
+        other: "неправильна довжина (має бути %{count} знаку)"
+    template: 
+      body: "Помилки виявлено в таких полях:"
+      header: 
+        few: "%{model} не збережено через %{count} помилки"
+        many: "%{model} не збережено через %{count} помилок"
+        one: "%{model} не збережено через %{count} помилку"
+        other: "%{model} не збережено через %{count} помилки"
+  footer: 
+    titles: 
+      contacts: "Контакти:"
+      menu: "Меню сайту:"
+      soc-networks: "Ми соціальні:"
+  helpers: 
+    select: 
+      prompt: "Оберіть: "
+    submit: 
+      create: "Створити %{model}"
+      submit: "Зберегти %{model}"
+      update: "Зберегти %{model}"
+  i18n: 
+    plural: ~
+    transliterate: ~
+  index-page: 
+    banner: 
+      title: "Тури та екскурсії по Україні (Львову)"
+  labels: 
+    city: "Оберіть місто"
+    select-city: "Виберіть місто"
+    type: "Оберіть тип"
+  main-menu: 
+    about: "Про нас"
+    contacts: Контакти
+    publication: Публікації
+    services: Послуги
+  number: 
+    currency: 
+      format: 
+        delimiter: " "
+        format: "%n %u"
+        precision: 2
+        separator: ","
+        significant: false
+        strip_insignificant_zeros: false
+        unit: грн.
+    format: 
+      delimiter: " "
+      precision: 3
+      separator: ","
+      significant: false
+      strip_insignificant_zeros: false
+    human: 
+      decimal_units: 
+        format: "%n %u"
+        units: 
+          billion: 
+            few: Мільярдів
+            many: Мільярдів
+            one: Мільярд
+            other: Мільярдів
+          million: 
+            few: Мільйонів
+            many: Мільйонів
+            one: Мільйон
+            other: Мільйонів
+          quadrillion: 
+            few: Квадрильйонів
+            many: Квадрильйонів
+            one: Кквадрильйон
+            other: Квадрильйонів
+          thousand: 
+            few: Тисяч
+            many: Тисяч
+            one: Тисяча
+            other: Тисяч
+          trillion: 
+            few: Трильйонів
+            many: Трильйонів
+            one: Трильйон
+            other: Трильйонів
+          unit: ""
+      format: 
+        delimiter: ""
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+      storage_units: 
+        format: "%n %u"
+        units: 
+          byte: 
+            few: байти
+            many: байтів
+            one: байт
+            other: байту
+          gb: ГБ
+          kb: кБ
+          mb: МБ
+          tb: ТБ
+    percentage: 
+      format: 
+        delimiter: ""
+    precision: 
+      format: 
+        delimiter: ""
+  sitemap: 
+    about: "Про нас"
+    banner: 
+      title: "КАРТА САЙТУ"
+    main-page: "Головна сторінка"
+    publications: Публікації
+    services: Послуги
+  social: 
+    event: "Поділитись туром"
+    publication: "Поділитись публікацією"
+    service: "Поділитись послугою"
+  static-pages: 
+    errors: 
+      link: "Повернутись на головну сторінку"
+      subtitle: "Даної сторінки не існує, або ж її було видалено."
+      title: "Сторінку не знайдено!"
+    publication: 
+      other: "Інші публікації"
+      title: "Цікаві публікації"
+  support: 
+    array: 
+      last_word_connector: " та "
+      two_words_connector: " і "
+      words_connector: ", "
+  time: 
+    am: "до полудня"
+    formats: 
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      long: "%d %B %Y, %H:%M"
+      short: "%d %b, %H:%M"
+    pm: "по полудні"
+  title: 
+    banner-form: "Підберемо щось цікаве?"
+    banner-regions: "Ми працюємо у наступних областях:"
+    index-publication: "Цікаві публікації"
+    order-event-form: "Форма замовлення"
+  tours: 
+    one-item: 
+      begin: "з "
+      form: 
+        date: "Дата проведення"
+        place: "Місце проведення"
+        price: Ціна
+        title: "Коротка інформація"
+      more: "Рекомендовані тури"

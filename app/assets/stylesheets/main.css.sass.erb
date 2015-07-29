@@ -1,0 +1,1823 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.sass.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+// font-family: 'Bad Script', cursive;
+// font-family: 'Marck Script', cursive;
+
+@import "mixins"
+@import "compass"
+
+$small-menu-max-width: 1040px
+
+p
+    font-family: "Fira Sans", sans-serif !important
+    font-size: 1.125rem
+    font-weight: 300
+    line-height: 1.6rem
+    color: #2a3a4b
+    margin-bottom: 2.5rem
+h1
+    font-size: 2.25rem
+    font-weight: 600
+    color: #2a3a4b
+    text-transform: uppercase
+    line-height: 2.5rem
+    margin-top: -6px
+h5
+    font-size: 1.125rem
+    font-weight: 500
+    color: #2a3a4b
+form
+    &#Filters
+        margin-left: 0
+        margin-top: 5px
+        margin-bottom: 20px
+    fieldset
+        padding: 0 !important
+        margin: 0 !important
+        border: none !important
+        .checkbox
+            display: inline-block
+            height: 30px
+            margin-right: 20px
+            @media (min-width : 0em) and (max-width : 40em)
+                margin-bottom: 20px
+            .squared-checkbox
+                +my_vertical_align(20%)
+
+.small-columns
+    @media only screen and (min-width: 0) and (max-width: #{$small-menu-max-width})
+        padding:
+            left: 0
+            right: 0
+
+// sticky footer
+.sf_container
+    /*display: table*/
+    /*height: 100%*/
+    /*width: 100%*/
+    /*@media (min-width : 0em) and (max-width : 1022px)*/
+        /*display: block*/
+
+.sf_footer
+    /*display: table-row*/
+    /*height: 1px*/
+// end sf
+a.link-to
+    img
+        &.ico-active
+            display: none
+        &.ico-passiwe
+            display: block
+    &:hover
+        &.ico-passiwe
+            display: none
+        &.ico-active
+            display: block
+.controls-css3-wrap
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+    width: 0
+    height: 0
+    overflow: hidden
+.hide
+    display: none!important
+.show-mobile-language-switcher
+    display: none !important
+    @media only screen and (min-width: 0) and (max-width: $small-menu-max-width)
+        display: block !important
+.hide-mobile-language-switcher
+    @media only screen and (min-width: 0) and (max-width: $small-menu-max-width)
+        display: none !important
+.mobile-language-switcher
+    border-left: 1px solid #2a3a4b
+    .one-lang
+        width: 25% !important
+        float: left
+        border-right: 1px solid #2a3a4b
+        &.active
+            // needs latest Compass, add '@import "compass"' to your scss
+            background-color: #2A3A4B // Old browsers
+            @include filter-gradient(#0B1B2A, #2A3A4B, vertical) // IE6-9
+            @include background-image(linear-gradient(top,  #0B1B2A 0%,#2A3A4B 100%))
+.header-wrap
+    transition: transform 0.5s
+    -webkit-transform: translateY(-95px)
+    -o-transform: translateY(-95px)
+    transform: translateY(-95px)
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    z-index: 11111
+    &.expand
+        transform: translateY(0px)
+        .hide-navigation-wrap
+            @media only screen and (min-width: 0) and (max-width: $small-menu-max-width)
+                height: auto
+        #main-menu
+            display: block
+            @media only screen and (min-width: 0) and (max-width: $small-menu-max-width)
+                height: auto !important
+                nav
+                    height: auto !important
+                li
+                    width: 100%
+                    height: 60px
+                    // needs latest Compass, add '@import "compass"' to your scss
+                    background-color: #ed1555 // Old browsers
+                    @include filter-gradient(#ed1555, #c71b4c, vertical) // IE6-8
+                    // IE9 SVG, needs conditional override of 'filter' to 'none'
+                    $experimental-support-for-svg: true
+                    @include background-image(linear-gradient(top,  #ed1555 0%,#c71b4c 100%))
+
+                    border-bottom: 1px solid #2a3a4b
+                    padding: 0 !important
+                    a
+                        line-height: 60px !important
+                        padding: 0 16px
+                        text-align: center
+                    ul.dropdown
+                        width: 100% !important
+                        position: static !important
+                        li
+                            height: 60px !important
+                            a
+                                height: 100% !important
+                                line-height: 60px !important
+    .hide-navigation-wrap
+        background: #9c2242 /* Old browsers */
+        background: -moz-linear-gradient(top,  #9c2242 0%, #ed1555 100%) /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9c2242), color-stop(100%,#ed1555)) /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  #9c2242 0%,#ed1555 100%) /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  #9c2242 0%,#ed1555 100%) /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  #9c2242 0%,#ed1555 100%) /* IE10+ */
+        background: linear-gradient(to bottom,  #9c2242 0%,#ed1555 100%) /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9c2242', endColorstr='#ed1555',GradientType=0 ) /* IE6-9 */
+        height: 100px
+        position: relative
+        border-bottom: 1px solid #9c2242
+        .main-menu
+            display: none
+        #main-menu
+            height: 100%
+            nav
+                height: 100px
+                ul
+                    margin-left: 0
+                    /*height: inherit*/
+                    margin-bottom: 0
+                    li
+                        display: inline-block
+                        list-style: none
+                        padding: 0 22px
+                        padding: 0 15px
+                        position: relative
+                        height: 100%
+                        float: left
+                        a
+                            color: #fff
+                            text-transform: uppercase
+                            font:
+                                size: 1.125rem
+                                weight: 500
+                            letter-spacing: .060rem
+                            line-height: 100px
+                            display: block
+                        &.has-dropdown
+                            a
+                                transition: all 150ms ease-out
+                                -webkit-transition: all 150ms ease-out
+                                -moz-transition: all 150ms ease-out
+                                -ms-transition: all 150ms ease-out
+                                -o-transition: all 150ms ease-out
+                                padding-right: 35px
+                            > a:after
+                                display: block
+                                content: ''
+                                +triangle(bottom, 6px, #fff)
+                                right: 30px
+                                position: absolute
+                                top: 45%
+                                @media only screen and (min-width: 0) and (max-width: $small-menu-max-width)
+                                    +triangle(right, 6px, #fff)
+
+                        &.ml:hover
+                            a
+                                background: -webkit-linear-gradient(#2A3A4B, #0B1B2A)
+                                -webkit-background-clip: text
+                                -webkit-text-fill-color: transparent
+                        &.has-dropdown:hover
+                            > a:after
+                                display: block
+                                content: ''
+                                +triangle(top, 6px, #0B1B2A)
+                                right: 30px
+                                position: absolute
+                                top: 40%
+                                @media only screen and (min-width: 0) and (max-width: $small-menu-max-width)
+                                    +triangle(left, 6px, #0B1B2A)
+                            &:after
+                                display: block
+                                content: ''
+                                +triangle(bottom, 10px, #ed1555)
+                                right: 35px
+                                position: absolute
+                                z-index: 2
+                                @media only screen and (min-width: 0) and (max-width: $small-menu-max-width)
+                                    top: 26px
+                                    +triangle(left, 6px, #fff)
+                            ul
+                                display: block
+                                @media only screen and (min-width: 0) and (max-width: $small-menu-max-width)
+                                    max-height: 200px
+                        ul.dropdown
+                            width: 410px
+                            margin-left: 0
+                            -webkit-transition: max-height 0.8s
+                            -moz-transition: max-height 0.8s
+                            transition: max-height 0.8s
+                            overflow: hidden
+                            position: absolute
+                            z-index: 1
+                            display: none
+                            @media only screen and (min-width: 0) and (max-width: $small-menu-max-width)
+                                max-height: 0
+                            li
+                                list-style: none
+                                display: block
+                                height: 75px
+                                width: 100%
+                                // needs latest Compass, add '@import "compass"' to your scss
+                                background-color: #d1d3d4 // Old browsers
+                                @include filter-gradient(#d1d3d4, #fff, vertical) // IE6-9
+                                @include background-image(linear-gradient(top,  #d1d3d4 0%,#fff 100%))
+                                @include background-image(linear-gradient(top,  #d1d3d4 0%,#fff 100%))
+                                border-left: 1px solid #9c2242
+                                border-right: 1px solid #9c2242
+                                border-bottom: 1px solid #9c2242
+                                &:last-of-type
+                                    border-bottom: 3px solid #9c2242
+                                a
+                                    background: -webkit-linear-gradient(#2A3A4B, #0B1B2A)
+                                    -webkit-background-clip: text
+                                    -webkit-text-fill-color: transparent
+                                    height: 75px
+                                    line-height: 75px
+                                    padding: 0 0 0 25px
+                                    span
+                                        font-size: .9rem
+                                        vertical-align: super
+                                        padding-left: .4rem
+                                &:hover
+                                    // needs latest Compass, add '@import "compass"' to your scss
+                                    background-color: #2A3A4B // Old browsers
+                                    @include filter-gradient(#0B1B2A, #2A3A4B, vertical) // IE6-9
+                                    @include background-image(linear-gradient(top,  #0B1B2A 0%,#2A3A4B 100%))
+                                    a
+                                        background: -webkit-linear-gradient( #d1d3d4, #ffffff )
+                                        -webkit-background-clip: text
+                                        -webkit-text-fill-color: transparent
+                                        padding-left: 35px
+                                    &:before
+                                        display: block
+                                        content: ''
+                                        width: 10px
+                                        height: 75px
+                                        // needs latest Compass, add '@import "compass"' to your scss
+                                        background-color: #9c2242 // Old browsers
+                                        @include filter-gradient(#9c2242, #ed1555, horizontal) // IE6-9
+                                        @include background-image(linear-gradient(left,  #9c2242 0%,#ed1555 100%))
+                                        position: absolute
+                                        left: 0
+                                        top: 0
+
+
+    .ornament-wrap
+        width: 100%
+        height: 7px
+        overflow: hidden
+        .ornament-inner
+            width: 100%
+            margin-left: auto
+            margin-right: auto
+            margin-top: 0
+            margin-bottom: 0
+            max-width: 62.5rem
+        .obj-ornaments
+            width: 74px
+            position: relative
+            height: 0
+            float: right
+            &:before, &:after
+                display: block
+                content: ''
+                background-image: url('<%=asset_path("LT-Ornament pattern.svg")%>')
+                background-size: 11px
+                height: 6px
+                position: absolute
+            &:before
+                width: 2992px
+                left: -3006px
+            &:after
+                width: 1000px
+                right: -988px
+
+    .buttons-to-navigation-wrap
+        .buttons-to-navigation-inner
+            position: relative
+        .buttons-contact-and-menu-wrap
+            position: absolute
+            width: 74px
+            top: -8px
+            right: 0
+            @media (min-width : 0em) and (max-width : 40em)
+                width: 88px !important
+                .button-open-main-menu
+                    width: 40px !important
+                    height: 40px !important
+            .button-open-main-menu
+                display: inline-block
+                width: 33px
+                height: 33px
+                margin: 0 2px
+                cursor: pointer
+                &.link-to-main-menu
+                    background-image: url('<%=asset_path("LT-menu.svg")%>')
+                    background-size: 100%
+                    border:
+                        left: 1px solid #9c2242
+                        right: 1px solid #9c2242
+                        bottom: 1px solid #9c2242
+                &.link-to-contacts-menu
+                    background-image: url('<%=asset_path("LT-menu-contacts.svg")%>')
+                    background-size: 100%
+                    border:
+                        left: 1px solid #9c2242
+                        right: 1px solid #9c2242
+                        bottom: 1px solid #9c2242
+                &.active
+                    background-image: url('<%=asset_path("LT-menu-close.svg")%>')
+                    background-size: 100%
+
+
+.bi
+    max-width: 100%
+    width: 100% !important
+    height: 100% !important
+    overflow: hidden !important
+    -webkit-background-size: cover !important
+    -moz-background-size: cover !important
+    -o-background-size: cover !important
+    background-size: cover !important
+    margin: 0 auto
+
+.pbi
+    max-width: 100%
+    width: 100% !important
+    height: 0
+    padding-bottom: 60%
+    overflow: hidden !important
+    -webkit-background-size: cover !important
+    -moz-background-size: cover !important
+    -o-background-size: cover !important
+    background-size: cover !important
+.abi
+    max-width: 100%
+    width: 100% !important
+    height: 0
+    padding-bottom: 50%
+    overflow: hidden !important
+    -webkit-background-size: cover !important
+    -moz-background-size: cover !important
+    -o-background-size: cover !important
+    background-size: cover !important
+.slide-blur
+    &.top-blur-line
+        height: 83px
+    &.bottom-blur-line
+        height: 105px
+    .header-slogan
+        padding-top: 38px
+        @media only screen and (min-width: 0) and (max-width: 700px)
+            display: none
+        h3
+            font:
+                size: 1.1875rem
+                family: "Fira Sans", sans-serif
+                weight: 200
+                style: italic
+            line-height: 1.125rem
+            color: #fff
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35)
+
+
+.main-banner
+    position: relative
+    height: 585px
+    width: 100%
+    overflow: hidden
+    .bx-wrapper, .bx-viewport
+        height: 100% !important
+    .bx-wrapper .bx-viewport
+        background: #fff
+    .bx-wrapper
+        .bx-controls-direction
+            a
+                width: 25px
+                height: 25px
+                background-size: 100%
+                background-position: center
+        .bx-prev
+            background-image: url('<%=asset_path("LT-arrow left 2 (passive).svg")%>') !important
+            &:hover
+                background-image: url('<%=asset_path("LT-arrow left 2 (active).svg")%>') !important
+        .bx-next
+            background-image: url('<%=asset_path("LT-arrow right 2 (passive).svg")%>') !important
+            &:hover
+                background-image: url('<%=asset_path("LT-arrow right 2 (active).svg")%>') !important
+    ul
+        /*width: 100% !important*/
+        margin-left: 0
+        height: inherit
+        &.main-banner-filters
+            height: auto
+        li
+            list-style: none
+            width: inherit
+            height: inherit
+            position: relative
+            overflow: hidden
+            height: 585px
+    #main-banner
+        width: 100%
+        height: 100%
+        li
+            .blur-slide-image
+                +blur(3px)
+    #second-banner
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        .second-banner-inner
+            width: 100%
+            height: 100%
+            position: relative
+            .slide-content-wrap
+                position: absolute
+                top: 0
+                left: 0
+                right: 0
+                bottom: 0
+            .content-block-wrap
+                height: 405px
+                -webkit-box-shadow: -1px -1px 9px 0px rgba(0,0,0,0.4), 1px 2px 3px 0px rgba(0,0,0,0.4)
+                -moz-box-shadow: -1px -1px 9px 0px rgba(0,0,0,0.4), 1px 2px 3px 0px rgba(0,0,0,0.4)
+                box-shadow: -1px -1px 9px 0px rgba(0,0,0,0.4), 1px 2px 3px 0px rgba(0,0,0,0.4)
+                position: relative
+                .bx-pager
+                    position: absolute
+                    top: 0
+        .title-wrap
+            position: absolute
+            left: 0
+            top: 0
+            right: 0
+            bottom: 0
+            .information-block
+                position: absolute
+                right: 0.9375rem
+                bottom: 0
+                padding-right: 35px
+                padding-bottom: 15px
+            h2, h3, h4
+                color: #fff
+                text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35)
+            h2
+                font:
+                    size: 3.96rem
+                    family: "Fira Sans", sans-serif
+                    weight: 600
+                text-transform: uppercase
+                line-height: 3rem
+                margin-bottom: 0
+            h3
+                font:
+                    size: 2.6975rem
+                    family: "Fira Sans", sans-serif
+                    weight: 600
+                line-height: 2.5rem
+            h4
+                font:
+                    size: 2.095rem
+                    family: "Bad Script", cursive
+                    weight: 400
+                line-height: 2rem
+.bx-controls-direction
+    @media (min-width : 0em) and (max-width : 40em)
+        display: none
+.custom-thumbnails-wrap
+    position: absolute
+    z-index: 1
+    ul
+        position: relative
+        left: 363px
+        margin-top: 10px
+        @media (min-width : 0em) and (max-width : 40em)
+            left: 10px
+            li
+                width: 40px !important
+                height: 40px !important
+        li
+            list-style: none
+            display: inline-block
+            width: 20px
+            height: 20px
+            margin-right: 10px
+            a
+                display: block
+                width: inherit
+                height: inherit
+                svg.pager-icon
+                    width: 100%
+                    height: 100%
+                &.active
+                    rect
+                        fill: #fff
+.logo-wrap
+    position: relative
+    height: 1px
+    #logo
+        width: 160px
+        position: absolute
+        left: 0
+        top: 7px
+        z-index: 1
+        padding-top: 23px
+        a
+            display: block
+            width: inherit
+            svg
+                width: 100%
+                height: 100%
+#main-banner-form
+    width: 353px
+    position: absolute
+    @media (min-width : 0em) and (max-width : 40em)
+        position: relative
+        width: 100%
+        margin-top: 0.9375rem
+        -webkit-box-shadow: -1px -1px 9px 0px rgba(0,0,0,0.4), 1px 2px 3px 0px rgba(0,0,0,0.4)
+        -moz-box-shadow: -1px -1px 9px 0px rgba(0,0,0,0.4), 1px 2px 3px 0px rgba(0,0,0,0.4)
+        box-shadow: -1px -1px 9px 0px rgba(0,0,0,0.4), 1px 2px 3px 0px rgba(0,0,0,0.4)
+    &:after
+        display: block
+        /*content: ''*/
+        position: absolute
+        right: -1px
+        width: 1px
+        height: 100%
+        top: 0
+        -webkit-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.7)
+        -moz-box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.7)
+        box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.7)
+        @media (min-width : 0em) and (max-width : 40em)
+            display: none
+#order-event-form
+    width: 530px
+    .form-wrap
+        position: relative
+        a.close-form
+            width: 33px
+            height: 33px
+            background-image: url('<%=asset_path("LT-menu-close.svg")%>')
+            background-size: 100%
+            position: absolute
+            right: 30px
+            top: 9px
+        .form-inner
+            padding: 35px 30px
+        .ornament-pattern
+            background-position: 140% top
+    form
+        button.order-event
+            margin-top: 15px
+            height: 75px
+            width: 100%
+            background-image: url('<%=asset_path("LT-order-button-passive.png")%>')
+            background-size: 100%
+            padding: 0
+            background-color: transparent
+            background-repeat: no-repeat
+            &:before
+                display: block
+                content: attr(data-name)
+                position: absolute
+                left: 33px
+                top: 0
+                right: 0
+                bottom: 0
+                color: #f1f2f2
+                font-family: "Fira Sans", sans-serif
+                font-size: 1.675rem
+                font-weight: 400
+                color: white
+                line-height: 75px
+                text-transform: uppercase
+                text-align: center
+            &:hover
+                background-image: url('<%=asset_path("LT-order-button-active.png")%>')
+                background-size: 100%
+.special-form-style
+    .input
+    label
+        font-family: "Fira Sans", sans-serif
+        font-size: 0.75rem
+        font-weight: 300
+        color: #939598
+        line-height: 1rem
+        padding-left: 0.75rem
+        padding-bottom: 2px
+    input
+        height: 42px
+        padding-left: 0.75rem
+    input, textarea
+        +placeholder(#ccc,0.875rem,normal)
+        &:focus
+            background: #ccc
+            color: #fff
+            outline: none
+            box-shadow: none
+            font-size: 1.125rem
+    textarea
+        min-height: 135px
+        padding: .5rem .75rem
+        line-height: 1.3rem
+    input[type=checkbox]
+        visibility: visible
+        height: auto
+
+.login-to-dashboard
+    padding: 35px 0 55px 0
+.form-wrap
+    height: 100%
+    /*overflow: hidden*/
+    top: 0
+    left: 0
+    z-index: 1
+    background: #ffffff /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 0%, #d1d3d4 100%) /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#d1d3d4)) /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#d1d3d4 100%) /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 0%,#d1d3d4 100%) /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 0%,#d1d3d4 100%) /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 0%,#d1d3d4 100%) /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#d1d3d4',GradientType=0 ) /* IE6-9 */
+
+    -webkit-box-shadow: inset -4px 0px 6px -2px rgba(0, 0, 0, 0.7)
+    -moz-box-shadow: inset -4px 0px 6px -2px rgba(0, 0, 0, 0.7)
+    box-shadow: inset -4px 0px 6px -2px rgba(0, 0, 0, 0.7)
+
+
+    .ornament-pattern
+        background-image: url('<%=asset_path("LT-Ornament.svg")%>')
+        background-size: 22%
+        background-repeat: no-repeat
+        background-position: 35% 30%
+        background-attachment: fixed
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        opacity: 0.1
+        z-index: 0
+    .header-title
+        height: 50px
+        width: 100%
+        // needs latest Compass, add '@import "compass"' to your scss
+        background-color: #9c2242 // Old browsers
+        @include filter-gradient(#9c2242, #ed1555, vertical) // IE6-9
+        @include background-image(linear-gradient(top,  #9c2242 0%,#ed1555 100%))
+        font:
+            family: 'Bad Script', cursive
+        color: #fff
+        line-height: 50px
+        position: relative
+        display: inline-block
+        text-align: left
+        font-weight: 300
+        font-size: 1.25rem
+        padding-left: 30px
+        letter-spacing: .1rem
+        padding-top: 2px
+        &:after
+            display: block
+            content: ''
+            +triangle(bottom, 10px, #ed1555)
+            right: 35px
+            top: 50px
+            position: absolute
+.form
+    margin: 0 30px 0 30px
+    position: relative
+    min-height: 325px
+    @media (min-width : 0em) and (max-width : 40em)
+        min-height: inherit
+        &.index-page-form
+            height: auto !important
+    &.index-page-form
+        height: 325px
+    .input
+        padding-top: 10px
+        label
+            font:
+                family: 'Fira Sans', sans-serif
+                size: .75rem
+                weight: 300
+            color: #939598
+            line-height: 1rem
+            padding-left: .75rem
+        .fancy-select
+            color: #2A424B
+            .trigger
+                width: 100%
+                height: 42px
+                color: #2A424B
+                // needs latest Compass, add '@import "compass"' to your scss
+                background-color: #d1d3d4 // Old browsers
+                @include filter-gradient(#fff, #d1d3d4, vertical) // IE6-9
+                @include background-image(linear-gradient(top, #fff  0%,#d1d3d4 100%))
+                @include background-image(linear-gradient(top,  #fff 0%,#d1d3d4 100%))
+                font:
+                    family: 'Fira Sans', sans-serif
+                    size: 1.0625rem
+                    weight: 500
+                border: 1px solid #BCBEC0
+                &.open:after
+                    display: block
+                    content: ''
+                    +triangle(top, 6px, #ed1555)
+                    right: 11px
+                    top: 8px
+                    position: absolute
+                &:before
+                    display: block
+                    content: ''
+                    width: 1px
+                    height: 42px
+                    background: #BCBEC0
+                    top: 0
+                    right: 40px
+                    position: absolute
+                &:after
+                    display: block
+                    content: ''
+                    +triangle(bottom, 6px, #ed1555)
+                    right: 11px
+                    top: 15px
+                    position: absolute
+            ul.options
+                width: 252px
+                border-top: 1px solid #bcbec0
+                border-bottom: 1px solid #bcbec0
+                li
+                    width: 100%
+                    height: 42px
+                    color: #2A424B
+                    // needs latest Compass, add '@import "compass"' to your scss
+                    background-color: #d1d3d4 // Old browsers
+                    @include filter-gradient(#fff, #d1d3d4, vertical) // IE6-9
+                    @include background-image(linear-gradient(top, #fff  0%,#d1d3d4 100%))
+                    @include background-image(linear-gradient(top,  #fff 0%,#d1d3d4 100%))
+                    position: relative
+                    border-left: 1px solid #bcbec0
+                    border-right: 1px solid #bcbec0
+                    border-bottom: 1px solid #bcbec0
+                    padding-left: 30px
+                    &:hover
+                        // needs latest Compass, add '@import "compass"' to your scss
+                        background-color: #2A3A4B // Old browsers
+                        @include filter-gradient(#0B1B2A, #2A3A4B, vertical) // IE6-9
+                        @include background-image(linear-gradient(top,  #0B1B2A 0%,#2A3A4B 100%))
+                        color: #d1d3d4
+                        padding-left: 40px
+                        &:before
+                            display: block
+                            content: ''
+                            width: 10px
+                            height: 100%
+                            // needs latest Compass, add '@import "compass"' to your scss
+                            background-color: #9c2242 // Old browsers
+                            @include filter-gradient(#9c2242, #ed1555, horizontal) // IE6-9
+                            @include background-image(linear-gradient(left,  #9c2242 0%,#ed1555 100%))
+                            position: absolute
+                            left: 0
+                            top: 0
+                    &.selected
+                        // needs latest Compass, add '@import "compass"' to your scss
+                        background-color: #2A3A4B // Old browsers
+                        @include filter-gradient(#0B1B2A, #2A3A4B, vertical) // IE6-9
+                        @include background-image(linear-gradient(top,  #0B1B2A 0%,#2A3A4B 100%))
+                        color: #d1d3d4
+
+
+.custom-button-wrap
+    cursor: pointer
+    &.find-button-wrap
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        cursor: pointer
+        height: 66px
+        @media (min-width : 0em) and (max-width : 40em)
+            position: static
+            height: auto
+    &.buttons-to-more-events-wrap
+        height: 71px
+        margin:
+            top: 13px
+            bottom: 102px
+    .main-find-icon-active
+        display: none
+    &:hover
+        .main-find-icon-passive
+            display: none
+        .main-find-icon-active
+            display: block
+    svg
+        width: 100%
+        height: 100%
+        &.main-find-icon-active
+            display: none
+    .find-button
+        width: 100%
+        height: 100%
+        position: relative
+        &:before
+            display: block
+            content: attr(data-name)
+            position: absolute
+            left: 33px
+            top: 0
+            right: 0
+            bottom: 0
+            color: #F1F2F2
+            font:
+                family: 'Fira Sans', sans-serif
+                size: 1.675rem
+                weight: 400
+            color: #fff
+            line-height: 66px
+            text-transform: uppercase
+            text-align: center
+.index-tour-tabs-wrap
+    margin-top: -53px
+    @media (min-width : 0em) and (max-width : 40em)
+        margin-top: 100px
+    ul
+        margin-left: 0
+        li
+            list-style: none
+            display: inline-block
+            width: 25%
+            @media (min-width : 0em) and (max-width : 850px)
+                width: 50%
+            @media (min-width : 0em) and (max-width : 40em)
+                width: 100%
+
+.index-tour-tab
+    height: 50px
+    // needs latest Compass, add '@import "compass"' to your scss
+    background-color: #ed1555 // Old browsers
+    @include filter-gradient(#ed1555, #9c2242, vertical) // IE6-9
+    @include background-image(linear-gradient(top,  #ed1555 0%,#9c2242 100%))
+    margin-left: 2px
+    margin-right: 2px
+    -webkit-box-shadow: inset 0px -9px 27px -13px rgba(0, 0, 0, 0.7)
+    -moz-box-shadow: inset 0px -9px 27px -13px rgba(0, 0, 0, 0.7)
+    box-shadow: inset 0px -9px 27px -13px rgba(0, 0, 0, 0.7)
+    cursor: pointer
+    h2
+        color: #fff
+        /*background: -webkit-linear-gradient( #d1d3d4, #ffffff )*/
+        /*-webkit-background-clip: text*/
+        /*-webkit-text-fill-color: transparent*/
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.35rem
+            weight: 400
+        color: #fff
+        line-height: 50px
+        text:
+            align: center
+            transform: uppercase
+    &.active
+        // needs latest Compass, add '@import "compass"' to your scss
+        background-color: #d1d3d4 // Old browsers
+        @include filter-gradient(#d1d3d4, #ffffff, vertical) // IE6-9
+        @include background-image(linear-gradient(top,  #d1d3d4 0%,#ffffff 100%))
+        -webkit-box-shadow: none
+        -moz-box-shadow: none
+        box-shadow: none
+        h2
+            /*background: -webkit-linear-gradient(#ed1555, #9c2242)*/
+            /*-webkit-background-clip: text*/
+            /*-webkit-text-fill-color: transparent*/
+            color: #ed1555
+            font-weight: 600
+.one-event-wrap
+    position: relative
+    cursor: pointer
+    margin-bottom: 30px
+
+    .event
+        height: 202px
+        width: 302px
+    .event-layer
+        position: relative
+        overflow: hidden
+        .event-layer-inner
+
+    &:hover
+        .date-time-wrap
+            -webkit-transform: scale(0)
+            -moz-transform: scale(0)
+            -ms-transform: scale(0)
+            -o-transform: scale(0)
+            transform: scale(0)
+        .event-content-wrap
+            transform: translateY(0)
+    .event-content-wrap
+        transition: transform 0.5s
+        transform: translateY(61%)
+    .one-event-content, .gradient-for-event-content, .event-content-wrap, .event-layer
+        position: absolute
+        left: 0
+        top: 0
+        right: 0
+        bottom: 0
+    .gradient-for-event-content
+        // needs latest Compass, add '@import "compass"' to your scss
+        background-color: #2a3a4b // Old browsers
+        @include filter-gradient(#2a3a4b, #0b1b2a, horizontal) // IE6-9
+        @include background-image(linear-gradient(left,  #2a3a4b 0%,#0b1b2a 100%))
+        opacity: .7
+    .one-event-content
+        padding: 10px
+        z-index: 1
+        .oec-header
+            width: 100%
+            height: 68px
+            overflow: hidden
+        .oec-text
+            width: 100%
+            height: 75%
+            float: left
+        h3, p
+            color: #fff
+            /*background: -webkit-linear-gradient( #d1d3d4, #ffffff )*/
+            /*-webkit-background-clip: text*/
+            /*-webkit-text-fill-color: transparent*/
+            font:
+                family: 'Fira Sans', sans-serif
+            text-align: left
+        h3
+            font:
+                size: 1rem
+            line-height: 1.3rem
+            text-transform: uppercase
+            font-weight: 400
+            letter-spacing: .05rem
+            padding-top: 3px
+            margin-top: 0
+            padding-top: 0
+        p
+            font:
+                size: 1rem
+                weight: 200
+            line-height: 1.125rem
+    .date-time-wrap
+        width: 93px
+        height: 30px
+        position: absolute
+        top: 10px
+        right: -10px
+        transition: transform 0.5s
+        background-image: url('<%=asset_path("LT-date-holder.png")%>')
+        background-repeat: no-repeat
+        background-size: 100%
+        span
+            display: block
+            font:
+                family: 'Fira Sans', sans-serif
+                size: 1.208125rem
+            line-height: 30px
+            text-align: center
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35)
+            color: #fff
+
+.content-page-wrap
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.4)
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.4)
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.4)
+    position: relative
+    h2
+        text-transform: uppercase
+
+.event-image
+    width: 100% !important
+    height: 0
+    padding-top: 66.6%
+    overflow: hidden !important
+    -webkit-background-size: cover !important
+    -moz-background-size: cover !important
+    -o-background-size: cover !important
+    background-size: cover !important
+
+.red-gradient
+    // needs latest Compass, add '@import "compass"' to your scss
+    background-color: #ed1555 // Old browsers
+    @include filter-gradient(#ed1555, #9c2242, vertical) // IE6-9
+    @include background-image(linear-gradient(top,  #ed1555 0%,#9c2242 100%))
+.black-gradient
+    // needs latest Compass, add '@import "compass"' to your scss
+    background-color: #2A3A4B // Old browsers
+    @include filter-gradient(#0B1B2A, #2A3A4B, vertical) // IE6-9
+    @include background-image(linear-gradient(top,  #0B1B2A 0%,#2A3A4B 100%))
+
+.grey-gradient
+    // needs latest Compass, add '@import "compass"' to your scss
+    background-color: #d1d3d4 // Old browsers
+    @include filter-gradient(#d1d3d4, #ffffff, vertical) // IE6-9
+    @include background-image(linear-gradient(top,  #d1d3d4 0%,#ffffff 100%))
+footer
+    position: relative
+    overflow: hidden
+
+.text-align-center-for-small
+    @media (min-width : 0em) and (max-width : 40em)
+        text-align: center
+
+.f-navigation-wrap
+    position: relative
+    overflow: hidden
+    .f-navigation-ornament-layer
+        position: absolute
+        left: 0
+        top: 0
+        right: 0
+        bottom: 0
+        background-image: url('<%=asset_path("LT-Pattern.png")%>'), url('<%=asset_path("LT-Pattern.png")%>')
+        background-size: 77%, 0%
+        background-repeat: repeat-x
+        background-position: -16% center, 70% 69%
+        opacity: .3
+    .f-content-part-wrap
+        h4
+            font:
+                family: 'Fira Sans', sans-serif
+                size: 1.625rem
+                weight: 400
+            letter-spacing: .092rem
+            color: #F1F2F2
+            text-transform: uppercase
+            padding-top: 20px
+            padding-bottom: 10px
+        nav
+            ul
+                margin-left: 0
+                li
+                    list-style: none
+                    margin: 3px 0
+                    @media (min-width : 0em) and (max-width : 40em)
+                        margin-right: 20px
+                        float: left
+                    a
+                        font:
+                            family: 'Fira Sans', sans-serif
+                            size: 1.1875rem
+                            weight: 300
+                        color: #F1F2F2
+        a.phone
+            font:
+                family: 'Fira Sans', sans-serif
+                size: 1.83125rem
+                weight: 500
+            color: #ED1555
+            margin-bottom: 10px
+            display: block
+        .location
+            p
+                font:
+                    family: 'Fira Sans', sans-serif
+                    size: 1.125rem
+                    weight: 300
+                color: #3C5F6B
+                margin: 0
+ul.social-icons-with-link
+    margin-left: 0
+    li
+        list-style: none
+        width: 40px
+        height: 40px
+        display: inline-block
+        margin-right: 10px
+        img
+            width: 100%
+            height: 100%
+            &.social-icon-active
+                display: none
+        a
+            display: block
+            &:hover
+                .social-icon-passiwe
+                    display: none
+            &:hover
+                .social-icon-active
+                    display: inline-block
+
+.regions-of-working-wrap
+    height: 182px
+    height: 250px
+    -webkit-box-shadow: 0px 2px 9px 1px rgba(0, 0, 0, 0.3)
+    -moz-box-shadow: 0px 2px 9px 1px rgba(0, 0, 0, 0.3)
+    box-shadow: 0px 2px 9px 1px rgba(0, 0, 0, 0.3)
+    position: relative
+    overflow: hidden
+    padding-top: 15px
+    h2
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.5rem
+            weight: 300
+            style: italic
+        color: #2A424B
+    ul.owl-carousel
+        margin-left: 0
+        margin-top: 15px
+        margin-bottom: 0 !important
+        li
+            list-style: none
+            img
+                /*width: 80%*/
+                height: 120px
+                display: block
+                margin: 0 auto
+    .background-ornament-layer
+        position: absolute
+        left: 0
+        top: 0
+        right: 0
+        bottom: 0
+        background-image: url('<%=asset_path("LT-Ornament.svg")%>'), url('<%=asset_path("LT-Ornament.svg")%>')
+        background-size: 45%, 20%
+        background-repeat: no-repeat
+        background-position: -16% center, 70% 69%
+        opacity: .1
+
+.index-publication-wrap
+    padding-bottom: 35px
+    h2
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.5rem
+            weight: 300
+            style: italic
+        color: #2A424B
+        padding: 40px 0 15px 0
+    .one-item-wrap
+        padding-bottom: 35px
+        .image
+            img
+        .text-wrap
+            position: relative
+            top: -10px
+        .text
+            background-color: #2A3A4B
+            padding: 15px
+            min-height: 240px
+            h3, span, p
+                font:
+                    family: 'Fira Sans', sans-serif
+            h3
+                font:
+                    size: 1rem
+                    weight: 300
+                color: #fff
+                line-height: 1.125rem
+                margin-bottom: 0
+                padding-bottom: 0
+
+            p
+                font:
+                    size: .875rem
+                    weight: 200
+                color: #A7A9AC
+                line-height: 1rem
+        &:hover
+            h3
+                color: #ED1555
+span.date
+    font:
+        size: .6875rem !important
+        weight: 300
+    color: #ED1555
+    margin-bottom: 1rem
+    display: inline-block
+.triangle-wrap
+    position: relative
+    overflow: hidden
+    height: 10px
+    width: 100%
+    .triangle
+        border: 10px solid #2a3a4b
+        border-bottom: none
+        border-color: transparent #2a3a4b transparent
+        position: absolute
+        right: 40px
+        top: 0
+        z-index: 11
+        &:before, &:after
+            content: ''
+            position: absolute
+            z-index: 11
+            height: 10px
+            top: -10px
+            background: #2a3a4b
+        &:before
+            right: 10px
+            width: 160px
+        &:after
+            left: 10px
+            width: 40px
+
+.partners-wrap
+    position: relative
+    height: 150px
+    overflow: hidden
+    ul
+        margin: 0
+        li
+            list-style: none
+            min-height: 150px
+            a
+                display: block
+                position: relative
+                min-height: inherit
+                img
+                    width: 60%
+                    +my_center_align(50%)
+                        position: absolute
+
+    &:before
+        display: block
+        content: ""
+        background-image: url('<%=asset_path("LT-Ornament pattern top.svg")%>')
+        background-size: 11px
+        height: 6px
+        position: absolute
+        left: 0
+        right: 0
+        top: -6px
+
+.page-wrap
+    /*padding-bottom: 35px*/
+
+/* style for .voronin-block-wrap */
+ul.voronin-block-wrap
+    margin: 0 !important
+
+    li
+        list-style: none
+        float: left
+        p
+            font:
+                size: 0.875rem
+                family: 'Fira Sans', sans-serif !important
+                style: normal !important
+                weight: 500
+            color: #3C5F6B !important
+            white-space: nowrap
+            margin:
+                bottom: 0 !important
+                top: 0 !important
+            padding-top: 0px
+
+            a
+                color: inherit
+                text-decoration: none
+                border-bottom: 1px solid rgba(60, 95, 107, 0.375)
+                font-family: inherit
+
+            a:hover
+                color: #dd7272
+                border-bottom: 1px solid rgba(60, 95, 107, 0.8)
+        svg
+            width: 48px
+            height: 100%
+            path
+                fill: #3C5F6B
+    li.vbw-image
+        width: 20%
+    li.vbw-image a:hover path
+        fill: rgba(221, 114, 114, 1)
+        -webkit-transition: all 1s
+        -moz-transition: all 1s
+        -o-transition: all 1s
+        transition: all 1s
+
+    li.vbw-text
+        width: 80%
+        padding: 3% 0 0 2%
+        p
+            letter-spacing: normal !important
+            font:
+                weight: 200
+                size: 0.875rem !important
+/*end*/
+
+.f-about-wrap
+    padding-top: 40px
+    margin-bottom: 45px
+    .f-about
+        padding-top: 20px
+        border-top: 1px solid #2A424B
+        p, a
+            letter-spacing: normal !important
+            font-weight: 200
+            font-size: 0.875rem !important
+            font-family: "Fira Sans", sans-serif !important
+            font-style: normal !important
+            color: #3c5f6b !important
+            white-space: nowrap
+            margin-bottom: 0 !important
+            margin-top: 0 !important
+            padding-top: 0px
+
+.no-padding-left
+    padding-left: 0
+.no-padding-right
+    padding-right: 0
+
+.header-height
+    height: 100px
+    position: relative
+#contacts-menu
+    .main-menu-social-links
+        a
+            display: block
+            width: 40px
+            +my_vertical_align()
+                position: absolute
+            img
+                &.social-icon-active
+                    display: none
+            &:hover
+                .social-icon-passiwe
+                    display: none
+                .social-icon-active
+                    display: inline-block
+    .main-menu-location
+        .location-ico
+            img
+                height: 30%
+                right: 0
+                +my_vertical_align()
+                    position: absolute
+        .address
+            +my_vertical_align()
+                position: absolute
+            p
+                color: #BCBEC0
+                font:
+                    size: 1.125rem
+                    family: 'Fira Sans', sans-serif
+                    weight: 300
+                line-height: 1.5rem
+                margin-bottom: 0
+    .main-menu-phones
+        +my_vertical_align()
+            position: absolute
+        a
+            color: #F1F2F2
+            font:
+                size: 1.125rem
+                family: 'Fira Sans', sans-serif
+                weight: 400
+            line-height: 1.5rem
+            letter-spacing: .09rem
+.text-page-wrap
+    padding-top: 145px
+
+.language-switcher-wrap
+    height: 100px
+    position: relative
+    ul
+        margin-left: 0
+        li
+            list-style: none
+            a
+                color: #2a424b
+                font-size: 1.125rem
+                font-family: "Fira Sans", sans-serif
+                font-weight: 500
+                text-transform: uppercase
+                line-height: 35px
+                text-align: center
+                width: 35px
+                height: 35px
+                display: block
+                background-color: #d1d3d4 // Old browsers
+                @include filter-gradient(#d1d3d4, #ffffff, vertical) // IE6-9
+                @include background-image(linear-gradient(top,  #d1d3d4 0%,#ffffff 100%))
+                &:hover
+                    background-color: #ed1555 // Old browsers
+                    @include filter-gradient(#ed1555, #9c2242, vertical) // IE6-9
+                    @include background-image(linear-gradient(top,  #ed1555 0%,#9c2242 100%))
+                    color: #f1f2f2
+    ul.sub-menu-switcher
+        display: none
+        position: absolute
+        right: 0
+        top: 29px
+        &:before
+            display: block
+            content: ''
+            +triangle(top, 6px, #d1d3d4)
+            position: relative
+            left: 11px
+    ul.language_menu_switcher
+        right: 0
+        margin: 0 2px
+        +my_vertical_align()
+            position: absolute
+        z-index: 2
+        .active_language
+            position: relative
+            &>a
+                color: #f1f2f2
+                font-size: 1.125rem
+                font-family: "Fira Sans", sans-serif
+                font-weight: 500
+                line-height: 35px
+                text-align: center
+                text-transform: uppercase
+                display: block
+                background-color: #ed1555 // Old browsers
+                @include filter-gradient(#ed1555, #9c2242, vertical) // IE6-9
+                @include background-image(linear-gradient(top,  #ed1555 0%,#9c2242 100%))
+                /*-webkit-box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2)*/
+                /*-moz-box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2)*/
+                /*box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.2)*/
+                /*border: 1px solid #9c2242*/
+            &:hover > a
+                background-color: #ed1555 // Old browsers
+                @include filter-gradient(#9c2242, #ed1555, vertical) // IE6-9
+                @include background-image(linear-gradient(top,  #9c2242 0%,#ed1555 100%))
+            &.expand
+                &>a
+                    background-color: #ed1555 // Old browsers
+                    @include filter-gradient(#9c2242, #ed1555, vertical) // IE6-9
+                    @include background-image(linear-gradient(top,  #9c2242 0%,#ed1555 100%))
+                ul
+                    display: block
+.send-feedback
+    position: relative !important
+    &:hover .active-button
+        display: block !important
+button:focus
+    outline: none !important
+
+/*.filter-button*/
+    /*button*/
+        /*background-color: transparent !important*/
+        /*border: none !important*/
+        /*box-shadow: none !important*/
+        /*width: 100%*/
+        /*outline: none !important*/
+        /*height: 67px*/
+        /*background-image: url('<%=asset_path("LT-button find (passive) 2.svg")%>')*/
+        /*background-size: 100%*/
+        /*background-repeat: no-repeat*/
+        /*&:before*/
+            /*display: block*/
+            /*content: attr(data-name)*/
+            /*position: absolute*/
+            /*left: 33px*/
+            /*top: 0*/
+            /*right: 0*/
+            /*bottom: 0*/
+            /*color: #F1F2F2*/
+            /*font:*/
+                /*family: 'Fira Sans', sans-serif*/
+                /*size: 1.675rem*/
+                /*weight: 400*/
+            /*color: #fff*/
+            /*line-height: 60px*/
+            /*text-transform: uppercase*/
+            /*text-align: center*/
+        /*&:hover*/
+            /*background-image: url('<%=asset_path("LT-button find (active) 2.svg")%>')*/
+            /*background-size: 100%*/
+            /*background-repeat: no-repeat*/
+    /*&.filter-category-page-button*/
+        /*button*/
+            /*height: 55px*/
+            /*&:before*/
+                /*line-height: 55px*/
+
+.filter-button, .button-wrap
+    width: 100%
+.button
+    width: 100%
+    height: 67px
+    position: relative
+    background: transparent
+    &:hover
+        background: transparent
+    &:focus
+        background: transparent
+        outline: none
+    &.b-height-60
+        height: 60px
+        .b-ico
+            h4
+                line-height: 60px !important
+            &:before
+                width: 65px !important
+                height: 65px !important
+        .b-border
+            height: 65px !important
+            width: 65px !important
+    .button-inner
+        position: absolute
+        left: 0
+        top: 0
+        right: 15px
+        bottom: 0
+        background-color: #ed1555 // Old browsers
+        @include filter-gradient(#ed1555, #9c2242, vertical) // IE6-9
+        @include background-image(linear-gradient(top,  #ed1555 0%,#9c2242 100%))
+        -webkit-box-shadow: 0px 1px 1px 0px rgba(0,0,0,1)
+        -moz-box-shadow: 0px 1px 1px 0px rgba(0,0,0,1)
+        box-shadow: 0px 1px 1px 0px rgba(0,0,0,1)
+        .elements-wrap
+            position: relative
+            z-index: 1
+            .elements
+                display: inline-block
+                text-align: center
+    .b-parts
+        height: inherit
+        position: relative
+        &.b-ico
+            h4
+                font-family: "Fira Sans", sans-serif
+                font-size: 1.675rem
+                font-weight: 400
+                color: white
+                line-height: 66px
+                text-transform: uppercase
+                white-space: nowrap
+                float: left
+
+            &:before
+                display: block
+                content: ''
+                background-image: url('<%=asset_path("LT-button-find-part1-(passive).png")%>')
+                background-size: 100%
+                background-repeat: no-repeat
+                height: 73px
+                width: 73px
+                position: relative
+                float: left
+                /*margin-left: -73px*/
+        &.b-border
+            background-image: url('<%=asset_path("LT-button-find-part2-(passive).png")%>')
+            background-size: 100%
+            background-repeat: no-repeat
+            height: 73px
+            width: 73px
+            position: absolute
+            top: 0
+            right: -15px
+        &.b-feedback
+            &:before
+                display: block
+                content: ''
+                background-image: url('<%=asset_path("LT-button-send-part1-(passive).png")%>')
+                background-size: 100%
+                background-repeat: no-repeat
+                height: 73px
+                width: 73px
+                position: relative
+                float: left
+        &.b-order
+            &:before
+                display: block
+                content: ''
+                background-image: url('<%=asset_path("LT-button-order-part1-(passive).png")%>')
+                background-size: 100%
+                background-repeat: no-repeat
+                height: 73px
+                width: 73px
+                position: relative
+                float: left
+    &:hover .button-inner
+        background: #ed1555
+    &:hover .b-ico:before
+        display: block
+        content: ''
+        background-image: url('<%=asset_path("LT-button-find-part1-(active).png")%>')
+    &:hover .b-feedback:before
+        display: block
+        content: ''
+        background-image: url('<%=asset_path("LT-button-send-part1-(active).png")%>')
+    &:hover .b-order:before
+        display: block
+        content: ''
+        background-image: url('<%=asset_path("LT-button-order-part1-(active).png")%>')
+    &:hover .b-border
+        background-image: url('<%=asset_path("LT-button-find-part2-(active).png")%>')
+/*.feedback-form*/
+    /*button*/
+        /*width: 220px*/
+        /*height: 50px*/
+        /*background-image: url('<%=asset_path("LT-button send (passive)-v1.svg")%>')*/
+        /*background-size: 100%*/
+        /*background-repeat: no-repeat*/
+        /*background-color: transparent*/
+        /*&:hover*/
+            /*background-image: url('<%=asset_path("LT-button send (active)-v1.svg")%>')*/
+            /*background-size: 100%*/
+            /*background-repeat: no-repeat*/
+.social-links
+    a
+        display: block
+        width: 40px
+        +my_vertical_align()
+            position: absolute
+        img
+            &.social-icon-active
+                display: none
+        &:hover
+            .social-icon-passiwe
+                display: none
+            .social-icon-active
+                display: inline-block
+
+.location
+    padding-top: 20px
+.slogan-wrap
+    position: relative
+    h3
+        position: absolute
+        top: 0
+        left: 0
+        z-index: 11
+        color: #fff
+        font-size: 1.125rem
+        font-weight: 200
+.breadcrumbs > *
+    font-size: .8rem !important
+    font-weight: 300 !important
+    text-transform: none !important
+.error-wrap
+    padding: 85px 0 140px 0
+    .errors-title-wrap
+        padding-bottom: 95px
+    h2
+        font:
+            size: 2.5rem
+            family: "Fira Sans", sans-serif
+            weight: 600
+        text-transform: uppercase
+        color: #2A3A4B
+    h5
+        font:
+            size: 1.125rem
+            family: "Fira Sans", sans-serif
+            weight: 300
+        color: #2A3A4B
+    a
+        font:
+            size: 1.125rem
+            family: "Fira Sans", sans-serif
+            weight: 300
+            style: italic
+        color: #ED1555
+        text-decoration: none
+        border-bottom: 1px solid rgba(237, 21, 85, 0.5)
+        &:hover
+            border-bottom: 1px solid rgba(237, 21, 85, 1)
+
+.full-height
+    height: 100%
+
+.wrap-for-sending-form
+    position: relative
+    .sending-status-wrap
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        z-index: 8010
+        background-image: url('<%=asset_path("fancybox_overlay.png")%>')
+        background-size: 100%
+        background-repeat: repeat
+        .sending-inner
+            width: 100%
+            height: 100%
+            position: relative
+            .sending-wrap, .success-wrap
+                +my_center_align
+                    position: absolute
+            .sending-wrap
+                width: 70px
+            .success-wrap
+                .content
+                    padding: 55px 0 65px 0
+            .success-wrap, .success-box-wrap
+                width: 100%
+.close-modal-button
+    width: 33px
+    height: 33px
+    background-image: url('<%=asset_path("LT-menu-close.svg")%>')
+    background-size: 100%
+    position: absolute
+    right: 30px
+    top: 9px
+    cursor: pointer
+
+table
+    width: 100%
+    border-collapse: collapse
+    thead
+        tr
+            font:
+                size: rem-calc(16)
+                family: "Fira Sans", sans-serif
+            line-height: rem-calc(32)
+
+            th
+                // needs latest Compass, add '@import "compass"' to your scss
+                background-color: #ed1555 // Old browsers
+                @include filter-gradient(#ed1555, #9c2242, vertical) // IE6-9
+                @include background-image(linear-gradient(top,  #ed1555 0%,#9c2242 100%))
+                margin-left: 2px
+                margin-right: 2px
+                -webkit-box-shadow: inset 0px -9px 27px -13px rgba(0, 0, 0, 0.7)
+                -moz-box-shadow: inset 0px -9px 27px -13px rgba(0, 0, 0, 0.7)
+                box-shadow: inset 0px -9px 27px -13px rgba(0, 0, 0, 0.7)
+                color: #E6E7E8
+                text-align: center
+                font:
+                    weight: 300
+    tbody
+        tr
+            td
+                color: #2A3A4B
+                text-align: center
+
+.info-window
+    /*background-color: #2A3A4B*/
+    p
+        margin-bottom: 0 !important
+    .address
+        margin-bottom: 1rem
+        p
+            font:
+                size: rem-calc(14)
+                style: italic
+            color: #bcbec0
+            line-height: rem-calc(16)
+            text-align: center
+    .phones
+        margin-bottom: 1rem
+        p
+            font:
+                size: rem-calc(16)
+                weight: 400
+            line-height: rem-calc(18)
+            color: #2a3a4b
+            text-align: center
+
+.gm-style-iw
+    width: 200px
+    min-height: 150px
+
+.gm-style
+    img
+        max-width: none !important
+
+
+
+
+

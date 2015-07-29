@@ -1,0 +1,40 @@
+.event-forms-wrap
+  .event-form
+    .ornament-pattern
+    .header-title = t('title.banner-form')
+    form.form
+      - if categories && categories.count > 0
+        .input.select-category
+          label = t('labels.type')
+          select.fancy-select name="type"
+            -categories.each do |c|
+              option value=c.slug selected=("selected" if c.name == category.name)
+                =c.name
+      - if cities && cities.count > 0
+        .input.select-city
+          label = t('labels.city')
+          select.fancy-select name="city"
+            - cities.each do |c|
+              option value=c.slug selected=("selected" if c.name == city.name)
+                =c.name
+      - get_tags_for_events(category.name)
+      - if filters.count > 0
+        ul.event-filters.for-category-page.main-banner-filters
+          - filters.each do |f|
+            li
+              .squared-checkbox
+                input type="checkbox" value="#{f.slug}" id="squared-#{f.slug}-#{f.id}-form" name="check[]" checked=("checked" if flags.include?(f.slug) )
+                label.ico for="squared-#{f.slug}-#{f.id}-form"
+              label.text for="squared-#{f.slug}-#{f.id}-form"
+                =f.name
+      .filter-button
+        /button type="submit" name="filter_form" value="true" data-name="#{t('buttons.pick')}"
+        button.button type="submit" name="filter_form" value="true"
+          .button-inner
+            .elements-wrap
+              .elements
+                .b-ico.b-parts
+                  h4
+                    =t('buttons.pick')
+                .clearfix
+            .b-border.b-parts

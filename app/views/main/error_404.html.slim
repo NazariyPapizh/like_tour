@@ -1,0 +1,29 @@
+.page-header-banner
+  .bi style="background: url('#{asset_path('LT-add-banner-error-404.jpg')}')no-repeat center center;"
+  .page-header-banner-title
+    .row
+      .columns
+        .title
+          h2 404
+  .breadcrumb-wrap
+    .row
+      .columns.large
+        ul.breadcrumbs
+          li
+            a href=root_path(locale: I18n.locale) = t('breadcrumbs.home')
+          li.current
+            a href="#"
+              |404
+
+.error-wrap
+  .row
+    .columns.large-6.large-centered.medium-6.medium-centered
+      .row
+        .columns
+          .errors-title-wrap
+            h2.text-center = t('static-pages.errors.title')
+            h5.text-center = t('static-pages.errors.subtitle')
+      .row
+        .columns
+          h5.text-center
+            = link_to "#{t('static-pages.errors.link')}", root_path(locale: I18n.locale)

@@ -1,0 +1,63 @@
+.index-tour-page class="#{'hide' if hide }"
+  /-get_tags_for_events(name)
+  -get_tags(name)
+  -if @category
+    -if @tags.count > 0
+      .filter-wrap
+        .row
+          .columns
+            .right
+              .row
+                .columns
+                  form.controls.filters.filters-main id='filters-main'
+                    fieldset
+                      - @tags.each do |ef|
+                        .checkbox
+                          .squared-checkbox
+                            input type="checkbox" value=".#{ef.slug}-#{index}" id="squared-#{ef.slug}-#{index}" name="check"
+                            label.ico for="squared-#{ef.slug}-#{index}"
+                          label.text for="squared-#{ef.slug}-#{index}"
+                            =ef.name
+
+        .row.container.container-main id='container-main'
+          -@events.published.each_with_index do |e, i|
+            -city = e.cities[0]
+            - names ||= []
+            - e.filter_words.each do |c|
+              - names << "#{c.slug}-#{index}"
+            .columns.large-4.medium-4.small-6.item-filter.left class=names.join(" ")  class="#{'end' if e == @events.last}"
+              .one-event-wrap
+                -cat = Category.where(name: category).first
+                -cat_slug = cat.try :slug
+                a href=tour_path(cat_slug, city.slug, e.slug, locale: I18n.locale)
+                  .event-image style="background: url('#{ if e.photo_galleries[0] then e.photo_galleries[0].image.url(:thumb) else asset_path('default_image.png') end }')no-repeat center center;"
+                  .event-layer
+                    .event-content-wrap
+                      .gradient-for-event-content
+                      .one-event-content
+                        .oec-header
+                          h3
+                            =e.name
+                        .oec-text
+                          =truncate_html e.short_description, length: 200
+                  -if e.date_begin
+                    .date-time-wrap.red-pattern
+                      span
+                        =t("tours.one-item.begin")
+                        =e.date_begin.strftime("%d.%m")
+        .row
+          .columns.large-4.medium-4.small-6.right
+            .custom-button-wrap.buttons-to-more-events-wrap
+              a href=category_path(@category.slug,locale: I18n.locale)
+                .button
+                  .button-inner
+                    .elements-wrap
+                      .elements
+                        .b-ico.b-parts
+                          h4
+                            =t('buttons.even-more')
+                        .clearfix
+                    .b-border.b-parts
+                /.find-button data-name="#{t('buttons.even-more')}"
+                /  = image_tag ("LT-button find (passive) 2.svg"), class: "main-find-icon-passive"
+                /  = image_tag ("LT-button find (active) 2.svg"), class: "main-find-icon-active"

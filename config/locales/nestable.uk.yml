@@ -1,0 +1,14 @@
+uk:
+  admin:
+    actions:
+      nestable:
+        title: "Сортування для %{model_label}"
+        menu: "Сортування"
+        breadcrumb: "Сортування"
+        link: "Сортування"
+        bulk_link: "Сортувати вибраний %{model_label_plural}"
+        done: "Відсортований"
+        success: "Успішно"
+        error: "Помилка"
+        update: "Оновлення"
+        live_update: "Автоматичне оновлення"

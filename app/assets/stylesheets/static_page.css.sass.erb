@@ -1,0 +1,392 @@
+// Place all the styles related to the static_page controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins"
+@import "compass"
+
+.page-header-banner
+    height: 240px
+    position: relative
+    .page-header-banner-title
+        position: absolute
+        left: 0
+        top: 0
+        right: 0
+        bottom: 0
+        .title
+            height: 240px
+            h2
+                z-index: 1
+                color: #fff
+                +my_vertical_align()
+                    position: absolute
+                text:
+                    transform: uppercase
+                    align: center
+                font:
+                    family: 'Fira Sans', sans-serif
+                    size: 4.124rem
+                    weight: bold
+                text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35)
+                letter-spacing: .1rem
+                width: 100%
+.g-map-wrap
+    .g-map
+        height: 250px
+        border-top: 1px solid #fff
+        border-bottom: 1px solid #fff
+        -webkit-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.4)
+        -moz-box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.4)
+        box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.4)
+        +transition(height, .5s, ease-out)
+        &.expand
+            height: 500px
+        .gmnoprint img
+            max-width: none
+    .drop-down-map
+        width: 40px
+        height: 40px
+        background: #fff
+        cursor: pointer
+        -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4)
+        -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4)
+        box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4)
+        position: relative
+        &:before
+            display: block
+            content: ''
+            +triangle(bottom, 10px, #2A3A4B)
+            position: absolute
+            top: 16px
+            left: 10px
+        &.expand:before
+            display: block
+            content: ''
+            +triangle(top, 10px, #2A3A4B)
+            position: absolute
+            top: 6px
+            left: 10px
+
+.about-photo-banner-wrap
+    /*height: 627px*/
+    // needs latest Compass, add '@import "compass"' to your scss
+    background-color: #2A3A4B // Old browsers
+    @include filter-gradient(#2A3A4B, #0B1B2A, vertical) // IE6-9
+    @include background-image(linear-gradient(top,  #2A3A4B 0%, #0B1B2A 100%))
+    h3
+        font-family: "Fira Sans", sans-serif
+        font-size: 1.5rem
+        font-weight: 200
+        font-style: italic
+        color: #F1F2F2
+        margin:
+            top: 40px
+            bottom: 25px
+    .bx-viewport
+        background: transparent
+    ul
+        margin-left: 0
+        li
+            background: transparent
+.about-wrap
+    padding-bottom: 50px
+    .description-wrap
+        padding: 30px 0
+    .custom-thumbnails-wrap
+        position: static
+        text-align: center
+        ul
+            position: static
+            left: 0
+            margin:
+                bottom: 50px
+                top: 15px
+                left: 0
+
+.command-wrap
+    margin-top: 70px
+    h3
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.5rem
+            weight: 300
+            style: italic
+        color: #2A424B
+        margin-bottom: 25px
+    .one-person-wrap
+        padding-bottom: 32px
+        .image
+            .pbi
+                padding-bottom: 95%
+    .text-wrap
+        position: relative
+        top: -10px
+        .triangle
+        .text
+            padding: 10px 0 20px 0
+            background-color: #2A3A4A
+            h3
+                font:
+                    family: 'Fira Sans', sans-serif
+                    size: 1.3125rem
+                    weight: 400
+                    style: normal
+                color: #fff
+                margin: 0
+                line-height: 1.4rem
+                text:
+                    transform: uppercase
+                    align: center
+            h5
+                font:
+                    family: 'Fira Sans', sans-serif
+                    size: 1.125rem
+                    weight: 100
+                color: #A7A9AC
+                margin: 0
+                text:
+                    align: center
+            a
+                font:
+                    family: 'Fira Sans', sans-serif
+                    size: .875rem
+                    weight: 300
+                    style: italic
+                color: #ED1555
+                margin: 0
+                text:
+                    align: center
+                display: block
+                padding-top: 20px
+.feedback-form
+    padding-bottom: 30px
+    .sending-status-wrap
+        background: transparent
+    h2
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.5rem
+            weight: 300
+            style: italic
+        color: #2A424B
+        margin: 0
+    form
+        padding-top: 20px
+        .input
+            label
+                font-family: "Fira Sans", sans-serif
+                font-size: 0.75rem
+                font-weight: 300
+                color: #939598
+                line-height: 1rem
+                padding-left: 0.75rem
+                padding-bottom: 2px
+            input
+                height: 42px
+                padding-left: 0.75rem
+            input, textarea
+                +placeholder(#ccc,0.875rem,normal)
+                &:focus
+                    background: #ccc
+                    color: #fff
+                    outline: none
+                    box-shadow: none
+                    font-size: 1.125rem
+            textarea
+                min-height: 194px
+                padding: .5rem .75rem
+                line-height: 1.3rem
+
+.contacts-wrap
+    padding: 50px 0 75px 0
+    h4
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.125rem
+            weight: 300
+            style: italic
+        color: #BCBEC0
+        margin: 0 0 10px 0
+    p
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.5rem
+            weight: 400
+        color: #2A3A4B
+        margin: 0
+        line-height: 1.8rem
+        &.phone
+            margin-bottom: .4rem
+    a
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.5rem
+            weight: 400
+        color: #ED1555
+        &.link-to-email
+            margin-top: 1.3rem
+            display: inline-block
+    p
+        a
+            font:
+                family: 'Fira Sans', sans-serif
+                size: 1.875rem
+                weight: 400
+            color: #2A3A4B
+            margin: 0
+            line-height: 1.6rem
+    .soc-icon
+        position: relative
+        width: 40px
+        height: 40px
+        @media (min-width : 0em) and (max-width : 40em)
+            width: 60px
+            height: 60px
+            a
+                width: 60px
+.publication-one-item-wrap
+    padding-top: 35px
+
+    h2
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 2.25rem
+            weight: 500
+        color: #2A3A4B
+        margin: 0
+        margin-bottom: 1rem
+        line-height: 2.25rem
+        text:
+            transform: uppercase
+    span.date
+        font:
+            size: 1rem !important
+            style: italic
+
+.publication
+    p
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.125rem
+            weight: 300
+        color: #2A3A4B
+        /*margin: 0*/
+        /*margin-bottom: 1rem*/
+        line-height: 1.5rem
+.publications-wrap
+    .publications-banner-wrap
+        padding-top: 35px
+        padding-bottom: 75px
+        -webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.4)
+        -moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.4)
+        box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.4)
+        position: relative
+        .bx-viewport
+            border: 1px solid #BCBEC0
+        .description-wrap
+            position: absolute
+            left: 0px
+            right: 0px
+            bottom: 0px
+            margin: 10px
+            background-color: rgba(11, 27, 42, 0.7)
+            .description
+                padding: 0.9375rem
+                p
+                    font:
+                        weight: 200
+                    color: #f1f2f2
+                    margin-bottom: 0
+                span.date
+                    margin-bottom: 0
+.other-publication-wrap
+    background-color: #F1F2F2
+    h2
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.5rem
+            weight: 300
+            style: italic
+        color: #2A424B
+        margin: 0
+        /*line-height: 1.3125rem*/
+ul.publications-banner
+    height: 400px
+    margin-left: 0
+    li
+        height: inherit
+
+ul.publications-pagers-preview
+    margin-left: 0
+    border-top: 1px solid #BCBEC0
+    border-right: 1px solid #BCBEC0
+    border-bottom: 1px solid #BCBEC0
+    li
+        list-style: none
+        position: relative
+        a
+            font:
+                family: 'Fira Sans', sans-serif
+                size: 1.125rem
+                weight: 400
+            color: #2A3A4B
+            line-height: 1.3125rem
+            text:
+                transform: uppercase
+            padding: 20px
+            display: block
+            height: 79.5px
+            background-color: #d1d3d4 // Old browsers
+            @include filter-gradient(#ffffff, #d1d3d4, vertical) // IE6-9
+            @include background-image(linear-gradient(top,  #ffffff 0%, #d1d3d4 100%))
+            position: relative
+            span
+                display: block
+                +my_vertical_align
+            &.active
+                background-color: #2A3A4B // Old browsers
+                @include filter-gradient(#0B1B2A, #2A3A4B, vertical) // IE6-9
+                @include background-image(linear-gradient(top,  #0B1B2A 0%,#2A3A4B 100%))
+                color: #fff
+                &:before
+                    display: block
+                    content: ''
+                    +triangle(left, 10px, #0B1B2A)
+                    position: absolute
+                    top: 10px
+                    left: -20px
+                &:after
+                    display: block
+                    content: ''
+                    width: 10px
+                    height: 80px
+                    // needs latest Compass, add '@import "compass"' to your scss
+                    background-color: #9c2242 // Old browsers
+                    @include filter-gradient(#ed1555, #9c2242, horizontal) // IE6-9
+                    @include background-image(linear-gradient(left,  #ed1555 0%,#9c2242 100%))
+                    position: absolute
+                    right: 0
+                    top: 0
+
+.site-map-page-wrap
+    padding: 35px 0 55px 0
+    ul
+        li
+            list-style: none
+            a
+                font:
+                    family: 'Fira Sans', sans-serif
+                    size: 1.3125rem
+                    weight: 400
+                color: #ED1555
+                line-height: 2rem
+            ul
+                margin-bottom: 1.125rem
+                li
+                    a
+                        font:
+                            size: 1.125rem
+                            weight: 300
+
+.privacy-page-wrap
+    padding: 35px 0 55px 0

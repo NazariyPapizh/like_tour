@@ -1,0 +1,51 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+(світліший градієнт)рожевий - #ED1555
+(темніший градієнт) - #9C2242
+
+#FFFFFF - від білого
+#D1D3D4 - сірий градієнт
+
+#2A3A4B - (світліша синій)
+#0B1B2A - (темніша сторона)
+
+#3C5F6B - (В футері для тектсту менш акцентованого)
+
+opacity 0.35 по  y-1 чорний - кнопки і на більшості плашок і соцмережах іконках (і для тексту в меню на сірому текст шадов з білим)
+
+opacity-0.7 y-1 blur-3 - baner
+
+opacity-0.25 y-2 blur 5 - oblast
+
+
+
+http://127.0.0.1:3000/uk/dityachi-tury/olesk?flags=flag1&flag2
+
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.

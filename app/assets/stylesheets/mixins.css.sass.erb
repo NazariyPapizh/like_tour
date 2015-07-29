@@ -1,0 +1,245 @@
+
+= triangle($dir, $size, $color)
+    border: $size transparent solid
+    width: $size
+    @if ($dir == "top" or $dir == "up")
+        border-bottom-color: $color
+    @else if ($dir == "right" or $dir == "after")
+        border-left-color: $color
+    @else if ($dir == "bottom" or $dir == "down")
+        border-top-color: $color
+    @else if ($dir == "left" or $dir == "before")
+        border-right-color: $color
+
+= my_vertical_align($size: 50%)
+    position: relative
+    top: $size
+    -webkit-transform: translateY(-$size)
+    -moz-transform: translateY(-$size)
+    -ms-transform: translateY(-$size)
+    -o-transform: translateY(-$size)
+    transform: translateY(-$size)
+    @content
+
+= my_horizontal_align
+    position: relative
+    left: 50%
+    -webkit-transform: translateX(-50%)
+    -moz-transform: translateX(-50%)
+    -ms-transform: translateX(-50%)
+    -o-transform: translateX(-50%)
+    transform: translateX(-50%)
+    @content
+
+= my_center_align ($top: 50%)
+    position: relative
+    top: $top
+    left: 50%
+    -webkit-transform: translate(-50%, -50%)
+    -moz-transform: translate(-50%, -50%)
+    -ms-transform: translate(-50%, -50%)
+    -o-transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%)
+    @content
+
+= scrollbar($size,$size-track,$size-thumb, $primary, $secondary: lighten($primary, 25%))
+    ::-webkit-scrollbar
+        width:  $size
+        height: $size
+
+
+    ::-webkit-scrollbar-thumb
+        background: $primary
+        width: $size-thumb
+
+
+    ::-webkit-scrollbar-track
+        background: $secondary
+        width: $size-track
+        margin-left: 3px
+        margin-right: 3px
+
+
+    // For Internet Explorer
+    body
+        scrollbar-face-color: $primary
+        scrollbar-track-color: $secondary
+
+=placeholder($color: #cccccc !important, $size: 1.125rem !important, $font_style: italic !important)
+
+    &::-webkit-input-placeholder
+        color: $color
+        font:
+            size: $size
+            style: $font_style
+        @content
+
+    &:-moz-placeholder
+        color: $color
+        font:
+            size: $size
+            style: $font_style
+        @content
+
+    &::-moz-placeholder
+        color: $color
+        font:
+            size: $size
+            style: $font_style
+        @content
+
+    &:-ms-input-placeholder
+        color: $color
+        font:
+            size: $size
+            style: $font_style
+        @content
+
+= rotate($deg)
+    -moz-transform: rotate($deg)
+    -ms-transform: rotate($deg)
+    -webkit-transform: rotate($deg)
+    -o-transform: rotate($deg)
+    transform: rotate($deg)
+
+
+= keyframes($animation_name)
+    @-webkit-keyframes $animation_name
+        @content
+
+    @-moz-keyframes $animation_name
+        @content
+
+    @-o-keyframes $animation_name
+        @content
+
+    @keyframes $animation_name
+        @content
+
+
+
+= stickyfooter
+    html,body
+        height: 100% !important
+
+    body
+        display: table
+        width: 100%
+
+    .page-row
+        display: table-row
+        height: 1px
+
+    .page-row-expanded
+        min-height: 100%
+= blur($var)
+    -webkit-filter: blur($var)
+    -moz-filter: blur($var)
+    -o-filter: blur($var)
+    -ms-filter: blur($var)
+    filter: blur($var)
+
+= transition($transition-property, $transition-time, $method)
+    -webkit-transition: $transition-property $transition-time $method
+    -moz-transition: $transition-property $transition-time $method
+    -ms-transition: $transition-property $transition-time $method
+    -o-transition: $transition-property $transition-time $method
+    transition: $transition-property $transition-time $method
+
+= transition_all( $transition-time)
+    -webkit-transition: $transition-time
+    -moz-transition: $transition-time
+    -ms-transition: $transition-time
+    -o-transition: $transition-time
+    transition: $transition-time
+    @content
+
+= transform($transforms)
+    -moz-transform: $transforms
+    -o-transform: $transforms
+    -ms-transform: $transforms
+    -webkit-transform: $transforms
+    transform: $transforms
+    @content
+
+// keyframes mixin
+=keyframes($name)
+    @-webkit-keyframes #{$name}
+        @content
+    @-moz-keyframes #{$name}
+        @content
+    @-ms-keyframes #{$name}
+        @content
+    @keyframes #{$name}
+        @content
+// use of keyframes mixin
++keyframes(my_opacity)
+    0%
+        opacity: 0
+    50%
+        opacity: .5
+    100%
+        opacity: 1
+
+
+
+=animation ($delay, $duration, $animation)
+    -webkit-animation-delay: $delay
+    -webkit-animation-duration: $duration
+    -webkit-animation-name: $animation
+    -webkit-animation-fill-mode: forwards /* this prevents the animation from restarting! */
+
+    -moz-animation-delay: $delay
+    -moz-animation-duration: $duration
+    -moz-animation-name: $animation
+    -moz-animation-fill-mode: forwards /* this prevents the animation from restarting! */
+
+    -o-animation-delay: $delay
+    -o-animation-duration: $duration
+    -o-animation-name: $animation
+    -o-animation-fill-mode: forwards /* this prevents the animation from restarting! */
+
+    animation-delay: $delay
+    animation-duration: $duration
+    animation-name: $animation
+    animation-fill-mode: forwards /* this prevents the animation from restarting! */
+
+@-webkit-keyframes opa_panel
+    0%
+        opacity: 1
+    50%
+        opacity: 0.5
+    100%
+        opacity: 0
+        z-index: 0
+@-moz-keyframes opa_panel
+    0%
+        opacity: 1
+    50%
+        opacity: 0.5
+    100%
+        opacity: 0
+        z-index: 0
+@-o-keyframes opa_panel
+    0%
+        opacity: 1
+    50%
+        opacity: 0.5
+    100%
+        opacity: 0
+        z-index: 0
+@keyframes opa_panel
+    0%
+        opacity: 1
+    50%
+        opacity: 0.5
+    100%
+        opacity: 0
+        z-index: 0 !important
+
+
+
+
+
+
+

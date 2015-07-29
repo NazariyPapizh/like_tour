@@ -1,0 +1,19 @@
+
+/*input[type=checkbox] {*/
+    /*visibility: visible !important;*/
+/*}*/
+
+.container{
+    text-align: justify;
+    position: relative;
+}
+
+.container .mix,
+.container .gap{
+    display: inline-block;
+}
+
+.container .mix{
+    display: none;
+}
+

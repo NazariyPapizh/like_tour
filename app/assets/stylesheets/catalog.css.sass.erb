@@ -1,0 +1,482 @@
+// Place all the styles related to the catalog controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "mixins"
+@import "compass"
+
+
+.checkbox
+    label
+        line-height: 16px !important
+ul.event-filters
+    margin: 20px 0
+    &.main-banner-filters
+        li
+            width: 50%
+            height: 16px !important
+            @media (min-width : 0em) and (max-width : 40em)
+                height: 30px !important
+                label
+                    line-height: 30px !important
+                    font-size: 1rem
+            label
+                line-height: 16px
+                display: inline-block
+                width: 80%
+                float: left
+
+    &.for-category-page
+        li
+            display: block
+            .squared-checkbox
+                margin-left: -7px
+    li
+        list-style: none !important
+        display: inline-block !important
+        height: 30px !important
+.squared-checkbox
+    width: 11px
+    height: 11px
+    margin: 0 15px 0 -6px
+    position: relative
+    display: block
+    float: left
+    +my_vertical_align(40%)
+    @media (min-width : 0em) and (max-width : 40em)
+        width: 30px
+        height: 30px
+        label
+            width: 100% !important
+            &.ico
+                width: 30px !important
+                height: 30px !important
+
+    label.ico
+        cursor: pointer
+        position: absolute
+        width: 100% !important
+        height: 11px
+        left: 0px
+        top: 0px
+        /*-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1)*/
+        /*-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1)*/
+        /*box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1)*/
+        border: 1px solid #939598
+        // needs latest Compass, add '@import "compass"' to your scss
+        background-color: #d1d3d4 // Old browsers
+        @include filter-gradient(#fff, #d1d3d4, vertical) // IE6-9
+        @include background-image(linear-gradient(top, #fff  0%,#d1d3d4 100%))
+        @include background-image(linear-gradient(top,  #fff 0%,#d1d3d4 100%))
+
+
+        &:after
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+            filter: alpha(opacity=0)
+            opacity: 0
+            content: ''
+            position: absolute
+            width: 9px
+            height: 9px
+            // needs latest Compass, add '@import "compass"' to your scss
+            background-color: #9c2242 // Old browsers
+            @include filter-gradient(#ed1555, #9c2242, vertical) // IE6-9
+            @include background-image(linear-gradient(top,  #ed1555 0%, #9c2242 100%))
+
+            top: 0px
+            left: 0px
+
+            @media (min-width : 0em) and (max-width : 40em)
+                width: 28px
+                height: 28px
+
+
+
+        &:hover::after
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)"
+            filter: alpha(opacity=30)
+            opacity: 0.3
+
+
+    & input[type=checkbox]:checked + label:after
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"
+        filter: alpha(opacity=100)
+        opacity: 1
+
+
+label.text
+    display: inline-block
+    line-height: 30px
+    font:
+        family: 'Fira Sans', sans-serif
+        size: .75rem
+        weight: 300
+    color: #2A424B
+    @media (min-width : 0em) and (max-width : 40em)
+        line-height: 30px !important
+input[type=checkbox]
+    visibility: hidden
+
+.page_header_banner_wrap
+    width: 100%
+    height: 590px
+    position: relative
+    overflow: hidden
+    .bx-wrapper
+        height: inherit !important
+        .bx-viewport
+            height: inherit !important
+    ul.page-header-slides
+        margin-left: 0
+        height: inherit !important
+        li
+            list-style: none
+            height: inherit !important
+    ul.event-banner-thumbnails
+        bottom: 32px
+        margin-left: 0
+        z-index: 50
+        +my_horizontal_align()
+            position: absolute
+        li
+            list-style: none
+            display: inline-block
+            width: 20px
+            height: 20px
+            margin-right: 10px
+            svg
+                width: 100%
+                height: 100%
+            a.active
+                rect
+                    fill: #fff
+    h2
+        z-index: 1
+        color: #fff
+        +my_center_align()
+            position: absolute
+        text:
+            transform: uppercase
+            align: center
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 4rem
+            weight: bold
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.35)
+        letter-spacing: .2rem
+        line-height: 4.5rem
+
+
+.breadcrumb-wrap
+    position: absolute
+    left: 0
+    right: 0
+    bottom: 0
+    height: 32px
+    background: rgba(255, 255, 255, .6)
+    -webkit-box-shadow: inset 0px -4px 8px 1px rgba(0, 0, 0, 0.2)
+    -moz-box-shadow: inset 0px -4px 8px 1px rgba(0, 0, 0, 0.2)
+    box-shadow: inset 0px -4px 8px 1px rgba(0, 0, 0, 0.2)
+    border-top: 1px solid rgba(255, 255, 255, 0.1)
+    ul.breadcrumbs
+        padding: 0 !important
+        background: none !important
+        border: none !important
+        margin: 0
+        height: 32px
+        overflow: visible !important
+        & > li
+            +my_vertical_align()
+        li
+            position: relative
+            z-index: 8
+            height: 100%
+            line-height: 32px
+            &:hover
+                a
+                    text-decoration: none
+            a
+                font:
+                    style: normal
+                text-transform: inherit
+                &:hover
+                    color: #ed1555
+            ul.sub-category-breadcrumbs
+                display: none
+                position: absolute
+                z-index: 11111
+                background: #fff
+                margin-left: 9px
+                -webkit-box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.3)
+                -moz-box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.3)
+                box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.3)
+                padding: 10px 30px 20px 20px
+                top: 32px
+                li
+                    list-style: none
+                    &:hover
+                        >a
+                            color: #ed1555
+                    a
+                        color: #9B2141
+                        font:
+                            family: 'Fira Sans', sans-serif
+                            size: 0.8rem
+                            weight: 300
+                        white-space: nowrap
+            &.has-sub-category
+                margin-right: 20px
+                &:after
+                    display: block
+                    content: ''
+                    right: -14px
+                    +triangle(bottom, 4px, #9b2141)
+                    +my_vertical_align(55%)
+                    position: absolute
+                &:hover
+                    &:after
+                        display: block
+                        content: ''
+                        right: -14px
+                        +triangle(top, 4px, #9b2141)
+                        +my_vertical_align(32%)
+                        position: absolute
+                    ul
+                        display: block
+.filter-panel-wrap
+    @media (min-width : 0em) and (max-width : 40em)
+        padding-top: 30px
+        padding-bottom: 90px
+        -webkit-box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.4)
+        -moz-box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.4)
+        box-shadow: 0px 1px 6px 2px rgba(0, 0, 0, 0.4)
+        margin-bottom: 30px
+.event-forms-wrap
+    //overflow: hidden
+    -webkit-transform: translateY(-82px)
+    -o-transform: translateY(-82px)
+    transform: translateY(-82px)
+    -webkit-box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.3)
+    -moz-box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.3)
+    box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.3)
+    position: relative
+    z-index: 11
+    @media (min-width : 0em) and (max-width : 40em)
+        -webkit-transform: translateY(0px)
+        -o-transform: translateY(0px)
+        transform: translateY(0px)
+
+    .event-form
+        /*padding-bottom: 30px*/
+        position: relative
+        // needs latest Compass, add '@import "compass"' to your scss
+        background-color: #d1d3d4 // Old browsers
+        @include filter-gradient(#ffffff, #d1d3d4, vertical) // IE6-9
+        @include background-image(linear-gradient(top,  #ffffff 0%, #d1d3d4 100%))
+        &.one-event-form
+            padding-bottom: 30px
+        .ornament-pattern
+            background-image: url('<%=asset_path("LT-Ornament.svg")%>')
+            background-size: 22%
+            background-repeat: no-repeat
+            background-position: 35% 30%
+            background-attachment: fixed
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            opacity: 0.1
+            z-index: 0
+        .header-title
+            height: 50px
+            width: 100%
+            // needs latest Compass, add '@import "compass"' to your scss
+            background-color: #9c2242 // Old browsers
+            @include filter-gradient(#9c2242, #ed1555, vertical) // IE6-9
+            @include background-image(linear-gradient(top,  #9c2242 0%,#ed1555 100%))
+            font:
+                family: 'Bad Script', cursive
+                size: 1.3rem
+            color: #fff
+            line-height: 50px
+            text-align: center
+            letter-spacing: .06rem
+            position: relative
+            &:after
+                display: block
+                content: ''
+                +triangle(bottom, 10px, #ed1555)
+                right: 35px
+                position: absolute
+        .info
+            margin: 15px 20px 0 20px
+            min-height: 280px
+            position: relative
+            z-index: 1
+            span
+                font:
+                    size: 0.631875rem
+                display: block
+                color: #939598
+                letter-spacing: .07rem
+            p
+                font:
+                    size: 1.125rem
+                    weight: 500
+                margin-bottom: 15px
+                line-height: 29px
+                svg
+                    width: 32px
+                    height: 32px
+                    position: relative
+                    top: 8px
+                    margin-right: 5px
+
+
+
+.eob-wrap
+    position: relative
+    width: 100%
+    height: 65px
+    .form-button
+        cursor: pointer
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        top: 0
+
+.form-button
+    cursor: pointer
+    position: absolute
+    margin-top: 10px
+    left: 0
+    right: 0
+    bottom: 0
+
+    img
+        width: 100%
+        height: auto
+    &:hover
+        .passive-button
+            display: none
+        .active-button
+            display: block
+    &:before
+        display: block
+        content: attr(data-name)
+        position: absolute
+        left: 33px
+        top: 0
+        right: 0
+        bottom: 0
+        color: #F1F2F2
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.675rem
+            weight: 400
+        color: #fff
+        line-height: 60px
+        text-transform: uppercase
+        text-align: center
+
+
+
+.share-links-wrap
+    padding-top: 25px
+    margin-bottom: 45px
+    border-top: 1px solid #BCBEC0
+    margin-top: 15px
+    position: relative
+    .inner
+        position: relative
+        overflow: hidden
+        cursor: pointer
+        &.active
+            .share-buttons-wrap
+                opacity: 1
+    .share-buttons-wrap
+        left: -265px
+        /*left: 265px*/
+        +transition(left,.8s,easy)
+        +my_vertical_align
+            position: absolute
+        height: 40px
+        ul
+            margin: 0
+            height: 100%
+            li
+                list-style: none
+                height: 100%
+                float: left
+                position: relative
+                width: 120px
+                margin-right: 10px
+                .soc-one-item
+                    +my_vertical_align
+                        position: absolute
+                    height: 24px
+                    .fb-share-button
+                        top: -3px
+
+    &:hover
+        .icon path
+            fill: #ED1555
+        .title
+            color: #ED1555
+        .share-buttons-wrap
+            left: 265px
+    .title-wrap
+        height: 50px
+        position: relative
+        width: 220px
+        background: #fff
+        z-index: 11
+    .icon
+        width: 30px
+        height: 30px
+        +my_vertical_align
+            position: absolute
+        float: left
+        z-index: 11
+        svg
+            width: 100%
+            height: 100%
+            path
+                +transition(fill,.5s,easy)
+    .title
+        width: 220px
+        height: 30px
+        +my_vertical_align
+            position: absolute
+        line-height: 30px
+        left: 40px
+        font:
+            family: 'Fira Sans', sans-serif
+            size: 1.125rem
+            weight: 400
+        color: #2A3A4B
+        +transition(color,.5s,easy)
+    .share-buttons
+        display: inline-block
+.empty-select-city-form
+    height: 68px
+.event-detail-wrap
+    padding-top: 35px
+    h2
+        font:
+            size: 2.25rem
+            weight: bold
+        color: #2A3A4B
+        line-height: 2.25rem
+        margin-bottom: 30px
+.recommended-items
+    background: #F1F2F2
+    padding-bottom: 60px
+    h2
+        font-family: "Fira Sans", sans-serif
+        font-size: 1.5rem
+        font-weight: 300
+        font-style: italic
+        color: #2a424b
+        padding: 40px 0 15px 0

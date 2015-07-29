@@ -1,0 +1,55 @@
+<div class="page-header-banner"><div class="bi" style="background: url('/assets/LT-add-banner-contacts.jpg')no-repeat center center;"></div>
+  <div class="page-header-banner-title">
+    <div class="row">
+      <div class="columns">
+        <div class="title">
+          <h2>Вхід в адмін панель</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="breadcrumb-wrap">
+    <div class="row">
+      <div class="columns large">
+        <ul class="breadcrumbs">
+          <li><a href="/uk">// Головна</a></li>
+          <li class="current"><a href="#">Вхід в адмін панель</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="login-to-dashboard">
+    <div class="row">
+        <div class="columns large-8 large-centered medium-8 mediu-centered">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {:class => 'special-form-style'}) do |f| %>
+              <div class="field">
+                <%= f.label :email, 'Електронна скринька' %>
+                <%= f.email_field :email, autofocus: true %>
+              </div>
+
+              <div class="field">
+                <%= f.label :password, 'Пароль' %>
+                <%= f.password_field :password, autocomplete: "off" %>
+              </div>
+
+              <% if devise_mapping.rememberable? -%>
+                <div class="field">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me, "Запам'ятати?" %>
+                </div>
+              <% end -%>
+                <div class="row">
+                    <div class="columns large-4 medium-4 right">
+                      <div class="actions right">
+                        <%= f.submit "Увійти" %>
+                      </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
+<div class="hide">
+  <%= render "devise/shared/links" %>
+</div>

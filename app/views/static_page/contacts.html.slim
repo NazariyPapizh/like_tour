@@ -1,0 +1,122 @@
+.page-header-banner
+  .bi style="background: url('#{asset_path('LT-add-banner-contacts.jpg')}')no-repeat center center;"
+  .page-header-banner-title
+    .row
+      .columns
+        .title
+          h2 = t('contacts-page.banner.title')
+  .breadcrumb-wrap
+    .row
+      .columns.large
+        ul.breadcrumbs
+          li
+            a href=root_path(locale: I18n.locale) = t('breadcrumbs.home')
+          li.current
+            a href="#" = t('breadcrumbs.contacts')
+.contacts-wrap
+  .row
+    .columns.large-4.medium-4
+      h4.text-align-center-for-small = t('contacts-page.our-address')
+      - if contacts
+        p = contacts.street
+        p = contacts.city
+        a.link-to-email href="mailto:info@travel.lviv.ua" = contacts.email
+    .columns.large-4.medium-4
+      h4.text-align-center-for-small = t('contacts-page.we-in-soc-networks')
+      .social-links
+        .row
+          .columns.large-2.medium-3.small-3
+            .soc-icon
+              a href=(unless contacts.skype.blank? then; "skype:#{contacts.skype}?call" end;)  rel="nofollow"
+                = image_tag "LT-social-skype-(passive).png", class: "social-icon-passiwe"
+                = image_tag "LT-social-skype-(active).png", class: "social-icon-active"
+          .columns.large-2.medium-3.small-3
+            .header-height.soc-icon
+              a href=(unless contacts.facebook.blank? then; "#{contacts.facebook}" end;) rel="nofollow"
+                = image_tag "LT-social-facebook-(passive).png", class: "social-icon-passiwe"
+                = image_tag "LT-social-facebook-(active).png", class: "social-icon-active"
+          .columns.large-2.medium-3.small-3
+            .header-height.soc-icon
+              a href=(unless contacts.google.blank? then; "#{contacts.google}" end;) rel="nofollow"
+                = image_tag "LT-social-g+-(passive).png", class: "social-icon-passiwe"
+                = image_tag "LT-social-g+-(active).png", class: "social-icon-active"
+          .columns.large-2.medium-3.small-3.end
+            .header-height.soc-icon
+              a href=(unless contacts.vk.blank? then; "#{contacts.vk}" end;) rel="nofollow"
+                = image_tag "LT-social-VK-(passive).png", class: "social-icon-passiwe"
+                = image_tag "LT-social-VK-(active).png", class: "social-icon-active"
+    .columns.large-4.medium-4
+      h4.text-align-center-for-small = t('contacts-page.contacts-phones')
+      p.phone
+        - unless contacts.phone_one.blank?
+          - main_phone_number = contacts.phone_one.gsub(/[+( )]/, '')
+          a href="tel:+#{main_phone_number}" rel="nofollow" =contacts.phone_one
+      p.phone
+        - unless contacts.phone_two.blank?
+          - second_phone_number = contacts.phone_two.gsub(/[+( )]/, '')
+          a href="tel:+#{second_phone_number}" rel="nofollow" =contacts.phone_two
+      p.phone
+        - unless contacts.phone_three.blank?
+          - last_phone_number = contacts.phone_three.gsub(/[+( )]/, '')
+          a href="tel:+#{last_phone_number}" rel="nofollow" =contacts.phone_three
+.g-map-wrap
+  - lattitude = google_map.lat
+  - longitude = google_map.lng
+  #g-map.g-map data-lat="#{lattitude}" data-lng="#{longitude}" data-address="#{contacts.try(:street)}" data-city="#{contacts.try(:city)}" data-phone1="#{contacts.try(:phone_one)}"   data-phone2="#{contacts.try(:phone_two)}"  data-phone3="#{contacts.try(:phone_three)}"
+  .row
+    .columns
+      .drop-down-map.right
+.feedback-form
+  .row
+    .columns
+      h2.text-align-center-for-small = t('contacts-page.feedback-form.title')
+  .row
+    .wrap-for-sending-form
+      .sending-status-wrap.hide
+        .sending-inner
+          .sending-wrap
+            =image_tag 'loading.gif'
+          .success-wrap.hide
+            .success-box-wrap
+              .form-wrap
+                .ornament-pattern
+                .header-title
+                  .close-modal-button
+                .content
+                  .row.text-center
+                    .columns
+                      h3 Ваша повідомлення надіслане!
+
+      form action=feedback_path(locale: I18n.locale) method="POST"
+        input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"
+        .columns.large-6.medium-6
+          .input
+            label = t('contacts-page.feedback-form.name.label')
+            input type="text" placeholder="#{t('contacts-page.feedback-form.name.placeholder')}" name="name" required=""
+          .input
+            label = t('contacts-page.feedback-form.phone.label')
+            input type="text" placeholder="+38 (050) 417 07 28|" name="phone" required=""
+          .input
+            label = t('contacts-page.feedback-form.email.label')
+            input type="text" placeholder="voronin.nick@gmail.com" name="email" required=""
+        .columns.large-6.medium-6
+          .row
+            .columns
+              .input
+                label = t('contacts-page.feedback-form.message.label')
+                textarea type="textarea" placeholder="#{ t('contacts-page.feedback-form.message.placeholder')}" name="message"
+          .row
+            .columns.large-7.medium-7.right
+              /button.send-feedback.form-button data-name="#{t('buttons.send')}"
+              .button-wrap
+                button.button name="filter_form"
+                  .button-inner
+                    .elements-wrap
+                      .elements
+                        .b-ico.b-parts.b-feedback
+                          h4
+                            =t('buttons.send')
+                        .clearfix
+                    .b-border.b-parts
+        .clearfix
+

@@ -1,0 +1,48 @@
+.page-header-banner
+  .bi style="background: url('#{asset_path('LT-add-banner-sitemap.jpg')}')no-repeat center center;"
+  .page-header-banner-title
+    .row
+      .columns
+        .title
+          h2 = t('sitemap.banner.title')
+  .breadcrumb-wrap
+    .row
+      .columns.large
+        ul.breadcrumbs
+          li
+            a href=root_path(locale: I18n.locale)  = t('breadcrumbs.home')
+          li.current
+            a href="#" = t('breadcrumbs.sitemap')
+.site-map-page-wrap
+  .row
+    .columns
+      ul
+        li
+          = link_to "#{t('sitemap.main-page')}", root_path(locale: I18n.locale)
+        li
+          = link_to "#{t('sitemap.about')}", about_us_path(locale: I18n.locale)
+        - parent = Category.where(:parent_id => nil)
+        - parent.each_with_index do |c, i|
+          -if i < 2
+            li
+              =link_to category_path(c.slug, locale: I18n.locale) do
+                =c.name
+              -if c.child_categories && c.child_categories.count > 0
+                ul
+                  - c.child_categories.each do |ch|
+                    -if ch.tours.count > 0
+                      li
+                        =link_to category_path(ch.slug, locale: I18n.locale) do
+                          =ch.name
+        li
+          = link_to "#{t('sitemap.publications')}", publication_path(locale: I18n.locale)
+        li
+          = link_to "#{t('sitemap.services')}", services_path(locale: I18n.locale)
+          - services = Service.where(published: true).order(created_at: :asc)
+          - if services && services.count > 0
+            ul
+              - services.each do |s|
+                li
+                  =link_to s.name, service_path(s.slug, locale: I18n.locale)
+        li
+          = link_to "#{t('breadcrumbs.contacts')}", contacts_path(locale: I18n.locale)

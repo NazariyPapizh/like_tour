@@ -1,0 +1,57 @@
+- content_for :f_image, @page.photo_galleries[0].image.url(:large)
+- content_for :f_title, @page.name
+
+-if @page
+  .page_header_banner_wrap
+    h2 = @page.name
+    -if @page && @page.photo_galleries.count > 1
+      -if @page && @page.photo_galleries.count > 0
+        ul.page-header-slides
+          -@page.photo_galleries.each_with_index do |p, i|
+            li
+              .bi.blur-slide-image style="background: url('#{p.image.url(:large)}')no-repeat center center;"
+      -if @page && @page.photo_galleries.count > 0
+        ul.event-banner-thumbnails
+          -@page.photo_galleries.each_with_index do |p, i|
+            li
+              a data-slide-index=i href=""
+                = embedded_svg ("LT-Ornament.svg"), class: "pager-icon"
+    -else
+      .bi.blur-slide-image style="background: url('#{@page.photo_galleries[0].image.url(:large)}')no-repeat center center;"
+    .breadcrumb-wrap
+      .row
+        .columns.large
+          ul.breadcrumbs
+            li
+              a href=root_path(locale: I18n.locale) = t('breadcrumbs.home')
+            li
+              a href=services_path(locale: I18n.locale) =t('breadcrumbs.service')
+            li.current
+              a href="#"
+                =@page.name
+
+  .service-page-wrap.content-page-wrap
+    .row
+      .columns
+        = raw @page.page
+    .row
+      .columns
+        = render partial: 'partials/forms/social_form', locals: { name: "#{t('social.service')}"}
+  .recommended-services-wrap.recommended-items
+    .row
+      .columns
+        h2
+          |Також пропонуємо
+    .row
+      -@other.each_with_index do |e, i|
+        .columns.large-4.medium-4 class="#{'end' if i == @other.count-1}"
+          .one-event-wrap
+            a href=service_path(e.slug, locale: I18n.locale)
+              .event-image style="background: url('#{e.photo_galleries[0].image.url(:thumb)}')no-repeat center center;"
+              .event-layer
+                .event-content-wrap
+                  .gradient-for-event-content
+                  .one-event-content
+                    .oec-header
+                      h3
+                        =e.name

@@ -1,0 +1,156 @@
+
+- content_for :f_image, @event.photo_galleries[0].image.url(:large)
+- content_for :f_title, @event.name
+- content_for :f_description, raw(@event.short_description)
+
+-if @event
+  .page_header_banner_wrap
+    h2 = @event.name
+    -if @event && @event.photo_galleries.count > 1
+      -if @event && @event.photo_galleries.count > 0
+        ul.page-header-slides
+          -@event.photo_galleries.each_with_index do |p, i|
+            li
+              .bi.blur-slide-image style="background: url('#{p.image.url(:large)}')no-repeat center center;"
+      -if @event && @event.photo_galleries.count > 0
+        ul.event-banner-thumbnails
+          -@event.photo_galleries.each_with_index do |p, i|
+            li
+              a data-slide-index=i href=""
+                = embedded_svg ("LT-Ornament.svg"), class: "pager-icon"
+    -else
+      -if @event.photo_galleries[0] && @event.photo_galleries[0].image.exists?
+        .bi.blur-slide-image style="background: url('#{@event.photo_galleries[0].image.url(:large)}')no-repeat center center;"
+      -else
+        .bi.blur-slide-image style="background: url('#{asset_path('default_image.png')}')no-repeat center center;"
+
+    .breadcrumb-wrap
+      .row
+        .columns.large
+          -category = Category.order(created_at: :asc)
+          -current_categorie = Category.find_by_slug(params[:category_name])
+          ul.breadcrumbs
+            li
+              a href=root_path(locale: I18n.locale) = t('breadcrumbs.home')
+            li.has-sub-category
+              a href="#"
+                -current_categorie = Category.find_by_slug(params[:category_name])
+                = current_categorie.name
+                - categories = other_category(current_categorie.id)
+                -if categories
+                  ul.sub-category-breadcrumbs
+                    -categories.each do |c|
+                      li
+                        =link_to category_path( c.slug, locale: I18n.locale) do
+                          =c.name
+
+            li.has-sub-category
+              - city_name = City.find_by_slug(params[:city_name])
+              a href="#"
+                = city_name.name
+              - if @cities
+                ul.sub-category-breadcrumbs
+                  -@cities.each do |c|
+                    li
+                      =link_to category_with_city_path(current_categorie.slug, c.slug, locale: I18n.locale) do
+                        =c.name
+            li.current
+              a href="#"
+                = truncate @event.name
+
+  .event-detail-page.content-page-wrap
+    .row
+      .columns.large-8.medium-8
+        -if @event
+          =image_tag @event.photo_galleries[0].image.url(:large), rel: "Facebook image", style: 'display: none;'
+          .event-detail-wrap
+            h2 =@event.name
+            = raw @event.description
+          .row
+            .columns
+              = render partial: 'partials/forms/social_form', locals: { name: "#{t('social.event')}"}
+      .columns.large-4.medium-4
+        .event-forms-wrap
+          .event-form.one-event-form
+            .ornament-pattern
+            .header-title = t('tours.one-item.form.title')
+            .info
+              .row
+                .columns
+                  span = t('tours.one-item.form.date')
+              .row
+                .columns
+                  p
+                    = embedded_svg ("LT-calendar.svg"), class: "form-icon"
+                    - if @event && @event.date_begin && @event.date_end
+                      =@event.date_begin.strftime("%d.%m.%Y")
+                      |&nbsp;-&nbsp;
+                      =@event.date_end.strftime("%d.%m.%Y")
+              .row
+                .columns
+                  span =t('tours.one-item.form.place')
+              .row
+                .columns
+                  p
+                    = embedded_svg ("LT-world.svg"), class: "form-icon"
+                    - if @event.cities.count > 0
+                      - @event.cities.each_with_index do |c, i|
+                        - if i == @event.cities.count-1
+                          = c.name
+                        - else
+                          = c.name
+                          |,&nbsp;
+              .row
+                .columns
+                  span = t('tours.one-item.form.price')
+              .row
+                .columns
+                  p
+                    = embedded_svg ("LT-gruvna.svg"), class: "form-icon"
+                    = @event.string_price
+                  .clearfix
+                .clearfix
+              .clearfix
+              .eob-wrap
+                a.fancybox.form-button.event-order-button href="#order-event-form"
+                  .button.b-height-60
+                    .button-inner
+                      .elements-wrap
+                        .elements
+                          .b-ico.b-parts.b-order
+                            h4
+                              =t('buttons.order')
+                          .clearfix
+                      .b-border.b-parts
+
+-if @events
+  .recommended-events-wrap.recommended-items
+    .row
+      .columns
+        h2 = t('tours.one-item.more')
+    .row
+      -@events.each_with_index do |e, i|
+        .columns.large-4.medium-4 class="#{'end' if i == @events.count-1}"
+          .one-event-wrap
+            -category = e.categories[0]
+            -city = e.cities[0]
+            a href=tour_path(category.slug, city.slug, e.slug, locale: I18n.locale)
+              - if e.photo_galleries.any? && e.photo_galleries[0].image.exists?
+                .event-image style="background: url('#{e.photo_galleries[0].image.url(:thumb) }')no-repeat center center;"
+              .event-layer
+                .event-content-wrap
+                  .gradient-for-event-content
+                  .one-event-content
+                    .oec-header
+                      h3
+                        =e.name
+                    .oec-text
+                      p
+                        =truncate_html e.short_description, lenght: '260'
+              .date-time-wrap.red-pattern class=(e.date_begin.present? ? nil : "hide")
+                span
+                  =t("tours.one-item.begin")
+                  =e.date_begin.try{|d| d.strftime("%d.%m")}
+
+= render partial: 'partials/popup/order_event', locals: {tour: @event.name }
+

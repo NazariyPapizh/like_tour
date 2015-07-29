@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="128px" height="128px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">
+<path fill="#ED1555" d="M64.002,0C28.71,0,0,28.71,0,64c0,35.289,28.71,64,64.002,64C99.286,128,128,99.289,128,64
+	C128,28.71,99.286,0,64.002,0z"/>
+<g>
+	<g opacity="0.35">
+		<polygon points="39.277,35 64.721,35 94.723,65.232 64.721,95 39.277,95 68.268,65.234 		"/>
+	</g>
+	<g>
+		<g>
+			
+				<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-180.7329" y1="167.4004" x2="-125.2871" y2="167.4004" gradientTransform="matrix(1 0 0 -1 219.0098 231.4004)">
+				<stop  offset="0" style="stop-color:#FFFFFF"/>
+				<stop  offset="1" style="stop-color:#D1D3D4"/>
+			</linearGradient>
+			<polygon fill="url(#SVGID_1_)" points="38.277,34 63.721,34 93.723,64.232 63.721,94 38.277,94 67.268,64.234 			"/>
+		</g>
+	</g>
+</g>
+</svg>

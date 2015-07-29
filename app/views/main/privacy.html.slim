@@ -1,0 +1,21 @@
+- if @page
+  .page-header-banner
+    .bi style="background: url('#{@page.image.url(:large)}')no-repeat center center;"
+    .page-header-banner-title
+      .row
+        .columns
+          .title
+            h2 =@page.name
+    .breadcrumb-wrap
+      .row
+        .columns.large
+          ul.breadcrumbs
+            li
+              a href=root_path(locale: I18n.locale) = t('breadcrumbs.home')
+            li.current
+              a href="#"
+                =@page.name
+  .privacy-page-wrap
+    .row
+      .columns
+        = raw @page.page

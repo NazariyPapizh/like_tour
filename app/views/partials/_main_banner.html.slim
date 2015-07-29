@@ -1,0 +1,40 @@
+- if index_banner
+  .main-banner
+    #main-banner
+      ul.bxslider.first-main-banner
+        - index_banner.each do |s|
+          li
+            a href=s.link
+            .bi.blur-slide-image style="background: url('#{s.image.url(:large)}')no-repeat center center;"
+
+    #second-banner
+      .second-banner-inner
+        .slide-content-wrap
+          .slide-blur.top-blur-line
+            .row
+              .columns.large-9.medium-9.large-offset-3.medium-offset-3
+                .header-slogan
+                  h3 = t('index-page.banner.title')
+          .row
+            .columns
+              .content-block-wrap
+                .hide-for-small-only
+                  = render partial: 'partials/forms/main_banner_form'
+                .custom-thumbnails-wrap
+                  ul#custom-thumbnails
+                    - index_banner.each_with_index do |s, i|
+                      li
+                        a data-slide-index=i href=""
+                          = embedded_svg ("LT-Ornament.svg"), class: "pager-icon"
+                ul.bxslider.second-main-banner
+                  - index_banner.each do |s|
+                    li
+                      .bi style="background: url('#{s.image.url(:large)}')no-repeat center center;"
+                      .title-wrap
+                        .row.full-height
+                          .columns.large-7.right.full-height
+                            .information-block
+                              h3.text-right = s.date_from
+                              h2.text-right = s.name_text
+                              h4.text-right = s.where_to_go
+          .slide-blur.bottom-blur-line

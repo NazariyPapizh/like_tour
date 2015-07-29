@@ -1,0 +1,63 @@
+.page-header-banner
+  .bi style="background: url('#{asset_path('LT-add-banner-publications.jpg')}')no-repeat center center;"
+  .page-header-banner-title
+    .row
+      .columns
+        .title
+          h2 = t('static-pages.publication.title')
+  .breadcrumb-wrap
+    .row
+      .columns.large
+        ul.breadcrumbs
+          li
+            a href=root_path(locale: I18n.locale) = t('breadcrumbs.home')
+          li.current
+            a href="#"  = t('static-pages.publication.title')
+- if 1==1
+  .publications-wrap
+    - if @future_publications && @future_publications.count > 0
+      .publications-banner-wrap
+        .row
+          .columns.large-8.medium-8.small-6.no-padding-right
+            ul.publications-banner
+              - @future_publications.each do |fp|
+                li
+                  .bi style="background: url('#{fp.image.url(:large)}')no-repeat center center;"
+                  .description-wrap
+                    .description
+                      .row
+                        .columns
+                          p
+                            = truncate_html fp.short_description, length: 250
+                          span.date
+                            =fp.created_at.strftime("%d.%m.%Y")
+          .columns.large-4.medium-4.small-6.no-padding-left
+            ul.publications-pagers-preview
+              - @future_publications.each_with_index do |t, i|
+                li
+                  a data-slide-index=i href=""
+                    span
+                      = truncate t.name, length: 50
+
+    - if @other_publications
+      .other-publication-wrap.index-publication-wrap
+        .row
+          .columns
+            h2.text-align-center-for-small = t('static-pages.publication.other')
+        .row
+          -@other_publications.each_with_index do |o, i|
+            .columns.large-3.medium-3.small-6 class="#{'end' if i == @other_publications.count-1}"
+              .one-item-wrap
+                a href=one_publication_path(o.slug, locale: I18n.locale)
+                  .image
+                    .pbi style="background: url('#{o.image.url(:large)}')no-repeat center center;"
+                  .text-wrap
+                    .triangle-wrap
+                      .triangle
+                    .text
+                      h3
+                        = truncate o.name, length: 52
+                      span.date
+                        =o.created_at.strftime("%d.%m.%Y")
+                      p
+                        = truncate_html o.short_description, length: 131

@@ -1,0 +1,37 @@
+-if @services
+  .page_header_banner_wrap
+    ul.page-header-slides
+      -@services.each_with_index do |p, i|
+        li
+          a href=service_path(p.slug, locale: I18n.locale)
+            .bi.blur-slide-image style="background: url('#{p.photo_galleries[0].image.url(:large)}')no-repeat center center;"
+            h2 =p.name
+    -if @services
+      ul.event-banner-thumbnails
+        -@services.each_with_index do |p, i|
+          li
+            a data-slide-index=i href=""
+              = embedded_svg ("LT-Ornament.svg"), class: "pager-icon"
+    .breadcrumb-wrap
+      .row
+        .columns.large
+          ul.breadcrumbs
+            li
+              a href=root_path(locale: I18n.locale) = t('breadcrumbs.home')
+            li.current
+              a href="#" =t('breadcrumbs.service')
+
+  .services-wrap
+    .row
+      -@services.each_with_index do |e, i|
+        .columns.large-4.medium-4 class="#{'end' if i == @services.count-1}"
+          .one-event-wrap
+            a href=service_path(e.slug, locale: I18n.locale)
+              .event-image style="background: url('#{e.photo_galleries[0].image.url(:thumb)}')no-repeat center center;"
+              .event-layer
+                .event-content-wrap
+                  .gradient-for-event-content
+                  .one-event-content
+                    .oec-header
+                      h3
+                        =e.name

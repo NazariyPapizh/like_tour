@@ -1,0 +1,70 @@
+.page-header-banner
+  .bi style="background: url('#{asset_path('LT-add-banner-about-us.jpg')}')no-repeat center center;"
+  .page-header-banner-title
+    .row
+      .columns
+        .title
+          h2 =t('about.title')
+  .breadcrumb-wrap
+    .row
+      .columns.large
+        ul.breadcrumbs
+          li
+            a href=root_path(locale: I18n.locale) = t('breadcrumbs.home')
+          li.current
+            a href="#" = t('breadcrumbs.about')
+- if @content
+  .about-wrap
+    .row
+      .columns.large-8.medium-8.end
+        .description-wrap
+          = raw @content.description
+    - if @content.certificates.count > 0
+      .about-photo-banner-wrap
+        .row
+          .columns
+            h3.text-align-center-for-small = t('about.certificate')
+        .row
+          .columns
+            ul.about-image-banner
+              - @content.certificates.in_groups_of(3, false).each_with_index do |row_tasks, index|
+                li
+                  - row_tasks.each_with_index do |task, index|
+                    .columns.large-4.medium-5 class="#{'end' if index == row_tasks.count-1}"
+                      =image_tag task.image.url(:thumb)
+
+        .row
+          .columns
+            .custom-thumbnails-wrap
+              ul#about-thumbnails
+                - @content.certificates.in_groups_of(3, false).each_with_index do |row_tasks, index|
+                  li
+                    a data-slide-index=index href=""
+                      = embedded_svg ("LT-Ornament.svg"), class: "pager-icon"
+        .clearfix
+
+    - if @content.personnels && @content.personnels.count > 0
+      .command-wrap
+        .row
+          .columns
+            h3.right.text-align-center-for-small = t('about.our_team')
+              |
+        .row
+          - @content.personnels.each_with_index do |c, i|
+            .columns.large-3.medium-4.small-6.end class="#{'end' if i == @content.personnels.count-1}"
+              .one-person-wrap
+                .image
+                  .pbi style="background: url('#{c.image.url(:large)}')no-repeat center center;"
+                .text-wrap
+                  .triangle-wrap
+                    .triangle
+                  .text
+                    h3
+                      = c.middle_name
+                    h3
+                      = c.first_name
+                    h5
+                      = c.work
+                    a href="mailto:#{c.email}"
+                      = c.email
+

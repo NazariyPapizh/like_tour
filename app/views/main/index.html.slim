@@ -1,0 +1,70 @@
+= render partial: "partials/main_banner"
+.show-for-small-only
+  .row
+    .columns
+      = render partial: 'partials/forms/main_banner_form'
+- if @categories
+  .index-tour-tabs-wrap
+    .row
+      .columns
+        ul
+          - @categories.each_with_index do |c,i|
+            li
+              .index-tour-tab class="#{'active' if i == 0}"
+                - title = c.name
+                -if title.size >= 16
+                  - label_tag = title.split(" ").first(1).join(" ")
+                  h2 =label_tag
+                -else
+                  h2 = title
+  .index-tour-tabs-pages-wrap
+    .row
+      .columns
+        - names ||= []
+        - @categories.each_with_index do |c,i|
+          - names << c.name
+        - names.each_with_index do |n,i|
+          - index = i+1
+          = render partial: 'main/event', locals: { hide: i != 0, name: n, index: index, category: n }
+
+-if @regions
+  .regions-of-working-wrap.grey-gradient
+    .background-ornament-layer
+    .row
+      .columns
+        h2.text-align-center-for-small = t('title.banner-regions')
+    .row
+      .columns
+        ul.owl-carousel
+          -@regions.each do |r|
+            li
+              =image_tag r.image.url(:large), title: r.name
+-if @publication
+  .clearfix
+  .index-publication-wrap
+    .row
+      .columns
+        h2.text-align-center-for-small = t('title.index-publication')
+    .row
+      -@publication.each_with_index do |o, i|
+        .columns.large-3.medium-3.small-6 class="#{'end' if i == @publication.count-1}"
+          .one-item-wrap
+            a href=one_publication_path(o.slug, locale: I18n.locale)
+              .image
+                .pbi style="background: url('#{o.image.url(:large)}')no-repeat center center;"
+              .text-wrap
+                .triangle-wrap
+                  .triangle
+                .text
+                  h3
+                    = truncate o.name, length: 52
+                  span.date
+                    =o.created_at.strftime("%d.%m.%Y")
+                  p
+                    = truncate o.short_description, length: 121
+
+
+
+
+
+

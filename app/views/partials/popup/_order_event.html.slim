@@ -1,0 +1,39 @@
+div style="display: none;"
+  #order-event-form.order-event-form-wrap.wrap-for-sending-form
+    .sending-status-wrap.hide
+      .sending-inner
+        .sending-wrap
+          =image_tag 'loading.gif'
+        .success-wrap.hide
+          .success-box-wrap
+            .form-wrap
+              .ornament-pattern
+              .header-title
+                .close-modal-button
+              .content
+                .row.text-center
+                  .columns
+                    h3 Ваша замовлення надіслане!
+    .form-wrap
+      .ornament-pattern
+      .header-title
+        = t('title.order-event-form')
+        a.close-form
+      .form-inner
+        form.special-form-style action=order_event_path(locale: I18n.locale) method="POST"
+          input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"
+          h3 =tour
+          input type="hidden" name="eventname" value=tour
+          .input
+            label Ваше ім’я
+            input type="text" placeholder="Воронін Микола" name="name" required=""
+          .input
+            label Контактний телефон
+            input type="text" placeholder="+38 (050) 417 07 28" name="phone" required=""
+          .input
+            label Електронна скринька
+            input type="text" placeholder="voronin.nick@gmail.com" name="email" required=""
+          .input
+            label Додаткові відомості
+            textarea type="textarea" placeholder="Озеро Титикака волнообразно. Коневодство, куда входят Пик-Дистрикт, Сноудония и другие многочисленные национальные резерваты графств и Большой Лондон." name="message"
+          button.order-event data-name="#{t('buttons.order-event')}"

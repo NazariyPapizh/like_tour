@@ -1,0 +1,10 @@
+.text-page-wrap
+  - if @categories
+    ul
+      - @categories.each do |c|
+        li
+          =c.name
+          - if c.tours && c.tours.count > 0
+            |(
+            =c.tours.count
+            |)

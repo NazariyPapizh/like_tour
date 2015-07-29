@@ -1,0 +1,546 @@
+--- 
+en: 
+  about: 
+    certificate: Certificates
+    our_office: "Visit our office"
+    our_team: "Meet our team"
+    title: "About us"
+  activerecord: 
+    errors: 
+      messages: 
+        record_invalid: "Validation failed: %{errors}"
+        restrict_dependent_destroy: 
+          many: "Cannot delete record because dependent %{record} exist"
+          one: "Cannot delete record because a dependent %{record} exists"
+  admin: 
+    actions: 
+      bulk_delete: 
+        breadcrumb: "Multiple delete"
+        bulk_link: "Delete selected %{model_label_plural}"
+        menu: "Multiple delete"
+        title: "Delete %{model_label_plural}"
+      dashboard: 
+        breadcrumb: Dashboard
+        menu: Dashboard
+        title: "Site Administration"
+      delete: 
+        breadcrumb: Delete
+        done: deleted
+        link: "Delete '%{object_label}'"
+        menu: Delete
+        title: "Delete %{model_label} '%{object_label}'"
+      edit: 
+        breadcrumb: Edit
+        done: updated
+        link: "Edit this %{model_label}"
+        menu: Edit
+        title: "Edit %{model_label} '%{object_label}'"
+      export: 
+        breadcrumb: Export
+        bulk_link: "Export selected %{model_label_plural}"
+        done: exported
+        link: "Export found %{model_label_plural}"
+        menu: Export
+        title: "Export %{model_label}"
+      history_index: 
+        breadcrumb: History
+        menu: History
+        title: "History for %{model_label_plural}"
+      history_show: 
+        breadcrumb: History
+        menu: History
+        title: "History for %{model_label} '%{object_label}'"
+      index: 
+        breadcrumb: "%{model_label_plural}"
+        menu: List
+        title: "List of %{model_label_plural}"
+      nestable: 
+        breadcrumb: Sorting
+        bulk_link: "Sort selected %{model_label_plural}"
+        done: Sorted
+        error: Error
+        link: Sorting
+        live_update: "Live update"
+        menu: Sorting
+        success: Success
+        title: "Sorting for %{model_label}"
+        update: Update
+      new: 
+        breadcrumb: New
+        done: created
+        link: "Add a new %{model_label}"
+        menu: "Add new"
+        title: "New %{model_label}"
+      show: 
+        breadcrumb: "%{object_label}"
+        menu: Show
+        title: "Details for %{model_label} '%{object_label}'"
+      show_in_app: 
+        menu: "Show in app"
+    export: 
+      click_to_reverse_selection: "Click to reverse selection"
+      confirmation: "Export to %{name}"
+      csv: 
+        col_sep: "Column separator"
+        col_sep_help: "Leave blank for default ('%{value}')"
+        default_col_sep: ","
+        encoding_to: "Encode to"
+        encoding_to_help: "Choose output encoding. Leave empty to let current input encoding untouched: (%{name})"
+        header_for_association_methods: "%{name} [%{association}]"
+        header_for_root_methods: "%{name}"
+        skip_header: "No header"
+        skip_header_help: "Do not output a header (no fields description)"
+      display: "Display %{name}: %{type}"
+      empty_value_for_associated_objects: <empty>
+      fields_from: "Fields from %{name}"
+      fields_from_associated: "Fields from associated %{name}"
+      options_for: "Options for %{name}"
+      select: "Select fields to export"
+      select_all_fields: "Select All Fields"
+    flash: 
+      error: "%{name} failed to be %{action}"
+      model_not_found: "Model '%{model}' could not be found"
+      noaction: "No actions were taken"
+      object_not_found: "%{model} with id '%{id}' could not be found"
+      successful: "%{name} successfully %{action}"
+    form: 
+      all_of_the_following_related_items_will_be_deleted: "? The following related items may be deleted or orphaned:"
+      are_you_sure_you_want_to_delete_the_object: "Are you sure you want to delete this %{model_name}"
+      basic_info: "Basic info"
+      bulk_delete: "The following objects will be deleted, which may delete or orphan some of their related dependencies:"
+      cancel: Cancel
+      char_length_of: "length of"
+      char_length_up_to: "length up to"
+      confirmation: "Yes, I'm sure"
+      new_model: "%{name} (new)"
+      one_char: character
+      optional: Optional
+      required: Required
+      save: Save
+      save_and_add_another: "Save and add another"
+      save_and_edit: "Save and edit"
+    home: 
+      name: Home
+    js: 
+      between_and_: "Between ... and ..."
+      contains: Contains
+      date: "Date ..."
+      ends_with: "Ends with"
+      ? "false"
+      : false
+      is_blank: "Is blank"
+      is_exactly: "Is exactly"
+      is_present: "Is present"
+      last_week: "Last week"
+      number: "Number ..."
+      starts_with: "Starts with"
+      this_week: "This week"
+      today: Today
+      ? "true"
+      : true
+      yesterday: Yesterday
+    loading: Loading...
+    misc: 
+      add_filter: "Add filter"
+      add_new: "Add new"
+      ago: ago
+      bulk_menu_title: "Selected items"
+      chose_all: "Choose all"
+      chosen: "Chosen %{name}"
+      clear_all: "Clear all"
+      down: Down
+      filter: Filter
+      filter_date_format: mm/dd/yy
+      log_out: "Log out"
+      navigation: Navigation
+      navigation_static_label: Links
+      refresh: Refresh
+      remove: Remove
+      search: Search
+      show_all: "Show all"
+      up: Up
+    pagination: 
+      next: "Next &raquo;"
+      previous: "&laquo; Prev"
+      truncate: …
+    table_headers: 
+      changes: Changes
+      created_at: Date/Time
+      item: Item
+      last_used: "Last used"
+      message: Message
+      model_name: "Model name"
+      records: Records
+      username: User
+  breadcrumbs: 
+    about: "About Us"
+    contacts: Contacts
+    home: "// Home"
+    service: Services
+    sitemap: "Site map"
+  buttons: 
+    even-more: "Even more!"
+    order: Order
+    order-event: Checkout
+    pick: Match!
+    send: Send
+  ckeditor: 
+    buttons: 
+      cancel: Cancel
+      delete: Delete
+      next: Next
+      upload: Upload
+    confirm_delete: "Delete file?"
+    page_title: "CKEditor Files Manager"
+  contacts-page: 
+    banner: 
+      title: CONTACTS
+    contacts-phones: "Telephone numbers"
+    feedback-form: 
+      email: 
+        label: Email
+      message: 
+        label: "Additional info"
+        placeholder: "Good morning! I'm interested in excursion for two persons for 1-3 of May. Could you please specify which tours are available and what are the prices?"
+      name: 
+        label: "Your name"
+        placeholder: "Smith John"
+      phone: 
+        label: "Tel. number"
+      title: "Contact with us"
+    our-address: "OUR address"
+    we-in-soc-networks: "Our social networks"
+  date: 
+    abbr_day_names: 
+      - Sun
+      - Mon
+      - Tue
+      - Wed
+      - Thu
+      - Fri
+      - Sat
+    abbr_month_names: 
+      - ~
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - May
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Oct
+      - Nov
+      - Dec
+    day_names: 
+      - Sunday
+      - Monday
+      - Tuesday
+      - Wednesday
+      - Thursday
+      - Friday
+      - Saturday
+    formats: 
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+    month_names: 
+      - ~
+      - January
+      - February
+      - March
+      - April
+      - May
+      - June
+      - July
+      - August
+      - September
+      - October
+      - November
+      - December
+    order: 
+      - !ruby/symbol year
+      - !ruby/symbol month
+      - !ruby/symbol day
+  datetime: 
+    distance_in_words: 
+      about_x_hours: 
+        one: "about 1 hour"
+        other: "about %{count} hours"
+      about_x_months: 
+        one: "about 1 month"
+        other: "about %{count} months"
+      about_x_years: 
+        one: "about 1 year"
+        other: "about %{count} years"
+      almost_x_years: 
+        one: "almost 1 year"
+        other: "almost %{count} years"
+      half_a_minute: "half a minute"
+      less_than_x_minutes: 
+        one: "less than a minute"
+        other: "less than %{count} minutes"
+      less_than_x_seconds: 
+        one: "less than 1 second"
+        other: "less than %{count} seconds"
+      over_x_years: 
+        one: "over 1 year"
+        other: "over %{count} years"
+      x_days: 
+        one: "1 day"
+        other: "%{count} days"
+      x_minutes: 
+        one: "1 minute"
+        other: "%{count} minutes"
+      x_months: 
+        one: "1 month"
+        other: "%{count} months"
+      x_seconds: 
+        one: "1 second"
+        other: "%{count} seconds"
+    prompts: 
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+  devise: 
+    confirmations: 
+      confirmed: "Your email address has been successfully confirmed."
+      send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
+    failure: 
+      already_authenticated: "You are already signed in."
+      inactive: "Your account is not activated yet."
+      invalid: "Invalid %{authentication_keys} or password."
+      last_attempt: "You have one more attempt before your account is locked."
+      locked: "Your account is locked."
+      not_found_in_database: "Invalid %{authentication_keys} or password."
+      timeout: "Your session expired. Please sign in again to continue."
+      unauthenticated: "You need to sign in or sign up before continuing."
+      unconfirmed: "You have to confirm your email address before continuing."
+    mailer: 
+      confirmation_instructions: 
+        subject: "Confirmation instructions"
+      reset_password_instructions: 
+        subject: "Reset password instructions"
+      unlock_instructions: 
+        subject: "Unlock instructions"
+    omniauth_callbacks: 
+      failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
+      success: "Successfully authenticated from %{kind} account."
+    passwords: 
+      no_token: "You can't access this page without coming from a password reset email. If you do come from a password reset email, please make sure you used the full URL provided."
+      send_instructions: "You will receive an email with instructions on how to reset your password in a few minutes."
+      send_paranoid_instructions: "If your email address exists in our database, you will receive a password recovery link at your email address in a few minutes."
+      updated: "Your password has been changed successfully. You are now signed in."
+      updated_not_active: "Your password has been changed successfully."
+    registrations: 
+      destroyed: "Bye! Your account has been successfully cancelled. We hope to see you again soon."
+      signed_up: "Welcome! You have signed up successfully."
+      signed_up_but_inactive: "You have signed up successfully. However, we could not sign you in because your account is not yet activated."
+      signed_up_but_locked: "You have signed up successfully. However, we could not sign you in because your account is locked."
+      signed_up_but_unconfirmed: "A message with a confirmation link has been sent to your email address. Please follow the link to activate your account."
+      update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
+      updated: "Your account has been updated successfully."
+    sessions: 
+      already_signed_out: "Signed out successfully."
+      signed_in: "Signed in successfully."
+      signed_out: "Signed out successfully."
+    unlocks: 
+      send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
+      send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
+      unlocked: "Your account has been unlocked successfully. Please sign in to continue."
+  errors: 
+    format: "%{attribute} %{message}"
+    messages: 
+      accepted: "must be accepted"
+      already_confirmed: "was already confirmed, please try signing in"
+      blank: "can't be blank"
+      confirmation: "doesn't match %{attribute}"
+      confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
+      empty: "can't be empty"
+      equal_to: "must be equal to %{count}"
+      even: "must be even"
+      exclusion: "is reserved"
+      expired: "has expired, please request a new one"
+      greater_than: "must be greater than %{count}"
+      greater_than_or_equal_to: "must be greater than or equal to %{count}"
+      in_between: "must be in between %{min} and %{max}"
+      inclusion: "is not included in the list"
+      invalid: "is invalid"
+      less_than: "must be less than %{count}"
+      less_than_or_equal_to: "must be less than or equal to %{count}"
+      not_a_number: "is not a number"
+      not_an_integer: "must be an integer"
+      not_found: "not found"
+      not_locked: "was not locked"
+      not_saved: 
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+      odd: "must be odd"
+      other_than: "must be other than %{count}"
+      present: "must be blank"
+      record_invalid: "Validation failed: %{errors}"
+      restrict_dependent_destroy: 
+        many: "Cannot delete record because dependent %{record} exist"
+        one: "Cannot delete record because a dependent %{record} exists"
+      taken: "has already been taken"
+      too_long: 
+        one: "is too long (maximum is 1 character)"
+        other: "is too long (maximum is %{count} characters)"
+      too_short: 
+        one: "is too short (minimum is 1 character)"
+        other: "is too short (minimum is %{count} characters)"
+      wrong_length: 
+        one: "is the wrong length (should be 1 character)"
+        other: "is the wrong length (should be %{count} characters)"
+    template: 
+      body: "There were problems with the following fields:"
+      header: 
+        one: "1 error prohibited this %{model} from being saved"
+        other: "%{count} errors prohibited this %{model} from being saved"
+  flash: 
+    actions: 
+      create: 
+        notice: "%{resource_name} was successfully created."
+      destroy: 
+        alert: "%{resource_name} could not be destroyed."
+        notice: "%{resource_name} was successfully destroyed."
+      update: 
+        notice: "%{resource_name} was successfully updated."
+  footer: 
+    titles: 
+      contacts: "Contacts:"
+      menu: "Menu:"
+      soc-networks: "We are social:"
+  helpers: 
+    page_entries_info: 
+      more_pages: 
+        display_entries: "Displaying %{entry_name} <b>%{first}&nbsp;-&nbsp;%{last}</b> of <b>%{total}</b> in total"
+      one_page: 
+        display_entries: 
+          one: "Displaying <b>1</b> %{entry_name}"
+          other: "Displaying <b>all %{count}</b> %{entry_name}"
+          zero: "No %{entry_name} found"
+    select: 
+      prompt: "Please select"
+    submit: 
+      create: "Create %{model}"
+      submit: "Save %{model}"
+      update: "Update %{model}"
+  i18n: ~
+  index-page: 
+    banner: 
+      title: "Tours and excursions in Ukraine (Lviv)"
+  labels: 
+    city: "Choose a city"
+    select-city: "Choose a city"
+    type: "Select type"
+  main-menu: 
+    about: "About us"
+    contacts: Contacts
+    publication: Publications
+    services: Services
+  number: 
+    currency: 
+      format: 
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: $
+    format: 
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human: 
+      decimal_units: 
+        format: "%n %u"
+        units: 
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+          unit: ""
+      format: 
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units: 
+        format: "%n %u"
+        units: 
+          byte: 
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage: 
+      format: 
+        delimiter: ""
+        format: "%n%"
+    precision: 
+      format: 
+        delimiter: ""
+  sitemap: 
+    about: "About us"
+    banner: 
+      title: "SITE MAP"
+    main-page: Home
+    publications: Publications
+    services: Services
+  social: 
+    event: "Share tour"
+    publication: "Share publication"
+    service: "Share services"
+  static-pages: 
+    errors: 
+      link: "Return to main page"
+      subtitle: "This page does not exist or has been deleted."
+      title: "Page not found!"
+    publication: 
+      other: "Other publications"
+      title: "Interesting publications"
+  support: 
+    array: 
+      last_word_connector: ", and "
+      two_words_connector: " and "
+      words_connector: ", "
+  time: 
+    am: am
+    formats: 
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: pm
+  title: 
+    banner-form: "Choose something interesting?"
+    banner-regions: "We work in the following areas:"
+    index-publication: "Interesting publications"
+    order-event-form: "Order form"
+  tours: 
+    one-item: 
+      begin: "from "
+      form: 
+        date: Dates
+        place: Location
+        price: Price
+        title: "Quick Overview"
+      more: "Recommended tours"
+  views: 
+    pagination: 
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      next: "Next &rsaquo;"
+      previous: "&lsaquo; Prev"
+      truncate: "&hellip;"

@@ -1,0 +1,121 @@
+footer.sf_footer
+  -if partners.count > 0
+    .partners-wrap.red-gradient
+      .row
+        .columns
+          ul
+            -partners.each do |item|
+              li
+                a
+                  -if item.image.content_type == "image/svg+xml"
+                    = image_tag item.image
+                  -else
+                    = image_tag item.image.url(:large)
+  .f-navigation-wrap.black-gradient
+    .f-navigation-ornament-layer
+    .f-content-part-wrap
+      .row
+        .columns.large-4
+          h4.hide-for-small-only = t('footer.titles.menu')
+          nav
+            ul
+              li
+                a href=about_us_path(locale: I18n.locale) = t('main-menu.about')
+              - parent = Category.where(:parent_id => nil)
+              - parent.each_with_index do |c, i|
+                -if i < 2
+                  li
+                    =link_to category_path(c.slug, locale: I18n.locale) do
+                      =c.name
+              li
+                a href=services_path(locale: I18n.locale) = t('main-menu.services')
+              li
+                a href=publication_path(locale: I18n.locale) = t('main-menu.publication')
+              li
+                a href=contacts_path(locale: I18n.locale) = t('main-menu.contacts')
+        .columns.large-4
+          h4.hide-for-small-only = t('footer.titles.soc-networks')
+          ul.social-icons-with-link
+            li
+              a href=(unless contacts.skype.blank? then; "skype:#{contacts.skype}?call" end;)  rel="nofollow"
+                = image_tag "LT-social-skype-(passive).png", class: "social-icon-passiwe"
+                = image_tag "LT-social-skype-(active).png", class: "social-icon-active"
+            li
+              a href=(unless contacts.facebook.blank? then; "#{contacts.facebook}" end;) rel="nofollow"
+                = image_tag "LT-social-facebook-(passive).png", class: "social-icon-passiwe"
+                = image_tag "LT-social-facebook-(active).png", class: "social-icon-active"
+            li
+              a href=(unless contacts.google.blank? then; "#{contacts.google}" end;) rel="nofollow"
+                = image_tag "LT-social-g+-(passive).png", class: "social-icon-passiwe"
+                = image_tag "LT-social-g+-(active).png", class: "social-icon-active"
+            li
+              a href=(unless contacts.vk.blank? then; "#{contacts.vk}" end;) rel="nofollow"
+                = image_tag "LT-social-VK-(passive).png", class: "social-icon-passiwe"
+                = image_tag "LT-social-VK-(active).png", class: "social-icon-active"
+        .columns.large-4
+          h4.hide-for-small-only = t('footer.titles.contacts')
+          .row
+            .columns.large-12.medium-12.small-9
+              - unless contacts.phone_one.blank?
+                - main_phone_number = contacts.phone_one.gsub(/[+( )]/, '')
+                a.phone href="tel:+#{main_phone_number}" rel="nofollow" =contacts.phone_one
+          .row
+            .columns.large-12.medium-12.small-9
+              - unless contacts.phone_two.blank?
+                - second_phone_number = contacts.phone_two.gsub(/[+( )]/, '')
+                a.phone href="tel:+#{second_phone_number}" rel="nofollow" =contacts.phone_two
+          .row
+            .columns.large-12.medium-12.small-9
+              - unless contacts.phone_three.blank?
+                - last_phone_number = contacts.phone_three.gsub(/[+( )]/, '')
+                a.phone href="tel:+#{last_phone_number}" rel="nofollow" =contacts.phone_three
+          .location
+            .row
+              .columns.large-3.medium-3.hide-for-small-only
+                = image_tag('LT-map-marker.png')
+              .columns.small-3.show-for-small-only
+                a.link-to
+                  = image_tag "LT-location-(passive).png", class: "icon-passiwe"
+                  = image_tag "LT-location-(active).png", class: "icon-active"
+              .columns.large-9.medium-9.small-9
+                .row
+                  .columns
+                    - if contacts
+                      p = contacts.street
+                .row
+                  .columns
+                    - if contacts
+                      p = contacts.city
+    .f-about-wrap
+      .row
+        .columns
+          .f-about
+            .columns.large-4.medium-4.left
+              ul.voronin-block-wrap
+                li.vbw-image
+                  a href="http://voroninstudio.eu/" rel="nofollow"
+                    svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="52px" height="55px" viewBox="0 0 52 55" enable-background="new 0 0 52 55" xml:space="preserve"
+                      g
+                        g
+                          path fill="#CBCBCB" d="M33.146,33.782c-0.068,0.039-0.126,0.073-0.176,0.103c3.201,1.559,8.311,3.211,13.26,3.329c1.355-2.407,2.599-4.907,3.449-7.581c-4.572,1.977-9.493,2.792-14.729,3.04C34.358,33.058,33.757,33.427,33.146,33.782z"
+                          path fill="#CBCBCB" d="M37.849,30.602c4.668-0.753,9.847-2.614,12.758-4.483c0.736-3.134,1.131-6.399,1.131-9.758c0-1.411-0.07-2.806-0.205-4.182C48.729,19.514,43.95,25.866,37.849,30.602z"
+                          path fill="#CBCBCB" d="M45.348,38.45c-5.48,0-10.719-1.038-15.529-2.928c-2.884-1.132-5.612-2.57-8.149-4.275c-0.021-0.015-0.044-0.028-0.065-0.043C11.376,24.302,4.314,13.066,3.052,0.131c-1.8,4.71-2.789,9.821-2.789,15.165c0,0.745,0.02,1.486,0.057,2.222c0.027,0.521,0.066,1.037,0.112,1.554c0.147,1.675,0.374,3.368,0.729,5.023c0.105,0.488,0.055,0.303,0.105,0.488c2.988,3.141,9.128,7.002,10.672,8.105c-1.575-0.314-7.415-3.135-9.733-4.668c1.332,4.25,3.327,8.459,6.011,12.029c1.926,0.816,5.661,2.653,6.985,3.102c-1.703-0.165-4.077-0.846-5.617-1.299c4.439,5.539,10.235,9.943,16.885,12.706c0.255,0.105,0.51,0.211,0.767,0.312c1.246-0.584,2.459-1.226,3.636-1.923c6.002-3.557,11.055-8.546,14.684-14.5C45.485,38.447,45.417,38.45,45.348,38.45z"
+                li.vbw-text
+                  p
+                    |Розроблено&nbsp;
+                    a href="http://voroninstudio.eu/" rel="nofollow"
+                      |в студії М. Вороніна
+                  p
+                    |&nbsp;в 2014р.
+                    a href="http://voroninstudio.eu/" rel="nofollow" Інформація про сайт
+                .clearfix
+            .columns.large-4.medium-4.right
+              .row
+                .columns.large-7.medium-7.small-7
+                  p
+                    a href=privacy_path(locale: I18n.locale)
+                      |Правила користування
+                .columns.large-5.medium-5.small-5
+                  p
+                    a href=sitemap_path(locale: I18n.locale)
+                      |Карта сайту

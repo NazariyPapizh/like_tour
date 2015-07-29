@@ -1,0 +1,15 @@
+.share-links-wrap
+  .inner
+    .title-wrap
+      .icon
+        = embedded_svg ("LT-share-passive.svg"), class: "share-icon"
+      .title
+        =name
+    .share-buttons-wrap
+      ul
+        li
+          .soc-one-item
+            .fb-share-button data-href=request.original_url data-layout="button_count"
+        li
+          .soc-one-item
+            .g-plus data-action="share" data-annotation="bubble" data-height="24"

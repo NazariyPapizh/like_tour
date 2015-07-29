@@ -1,0 +1,56 @@
+- if @publication
+  .page-header-banner
+    .bi style="background: url('#{@publication.image.url(:large)}')no-repeat center center;"
+    .page-header-banner-title
+      .row
+        .columns
+          .title
+            h2 = t('static-pages.publication.title')
+    .breadcrumb-wrap
+      .row
+        .columns.large
+          ul.breadcrumbs
+            li
+              a href=root_path(locale: I18n.locale) = t('breadcrumbs.home')
+            li
+              a href=publication_path(locale: I18n.locale) = t('static-pages.publication.title')
+            li.current
+              a href="#"
+                =@publication.name
+
+  .publication-one-item-wrap.publication.content-page-wrap
+    .row
+      .columns.large-4
+        = image_tag @publication.image.url(:large)
+      .columns.large-8
+        h1
+          =@publication.name
+        span.date
+          =@publication.created_at.strftime("%d.%m.%Y")
+        = raw @publication.description
+        .row
+          .columns
+            = render partial: 'partials/forms/social_form', locals: { name: "#{t('social.publication')}"}
+-if @publications
+  .other-publication-wrap.index-publication-wrap
+    .row
+      .columns
+        h2
+          |Читайте також
+    .row
+      -@publications.each_with_index do |o, i|
+        .columns.large-3.medium-3.small-6 class="#{'end' if i == @publications.count-1}"
+          .one-item-wrap
+            a href=one_publication_path(o.slug, locale: I18n.locale)
+              .image
+                .pbi style="background: url('#{o.image.url(:large)}')no-repeat center center;"
+              .text-wrap
+                .triangle-wrap
+                  .triangle
+                .text
+                  h3
+                    = truncate o.name, length: 52
+                  span.date
+                    =o.created_at.strftime("%d.%m.%Y")
+                  p
+                    = truncate_html o.short_description, length: 131
